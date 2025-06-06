@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 const Navbar = () => {
     const links = <>
@@ -26,17 +26,17 @@ const Navbar = () => {
                 {links}
             </ul>
         </div>
-        <div className="navbar-end gap-2">
-            <a className="btn btn-primary">Login</a>
+        <div className="navbar-end gap-3">
+            <Link to='/auth/login' className="btn btn-primary">Login</Link>
             <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button">
             <div>
-                <h2 className="text-lg">My Profile</h2>
+                <h2 className=" text-base md:text-lg font-medium">My Profile</h2>
             </div>
             </div>  
             <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text-lg">
+                className="menu menu-md dropdown-content bg-base-100 rounded-box z-1 mt-4 w-52 p-3 shadow text-lg">
                 
                 <li><NavLink>Add Volunteer Need Post</NavLink></li>
                 <li><NavLink>Manage My Posts</NavLink></li>
