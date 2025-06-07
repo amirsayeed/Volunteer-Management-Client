@@ -3,9 +3,11 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from 'react-icons/fa6';
 
 const Register = () => {
-    const {signUp,googleSignIn,setUser} = useAuth();
+    const {signUp,googleSignIn,setUser,updateUser} = useAuth();
+    const [showPassword, setShowPassword] = useState(false);
     const navigate = useNavigate();
     const handleRegister = e =>{
         e.preventDefault();
@@ -15,11 +17,30 @@ const Register = () => {
         const password = e.target.password.value;
         //console.log(name,photo,email,password);
 
+        const passRegex = /^(?=.*[A-Z])(?=.*[a-z]).{6,}$/;
+        if(!passRegex.test(password)){
+            const msg = 'Password must contain at least one uppercase letter, one lowercase letter and be at least 6 characters long.';
+            toast.error(msg);
+            return;
+        }
+
          signUp(email,password).then(result=>{
-            console.log(result.user);
+            const user = result.user;
+            
+            updateUser({ displayName: name, photoURL: photo })
+            .then(()=>{
+            setUser({...user, displayName: name, photoURL: photo});
+            toast.success("Registration successful!");
+            navigate('/');
+            })
+            .catch(error=>{
+                toast.error(error);
+                setUser(user);
+            })
         })
         .catch(error=>{
             console.log(error);
+            toast.error(error.message);
         })
     }
 
@@ -52,11 +73,19 @@ const Register = () => {
                     
                 
                 <label className="text-sm mt-2">Password*</label>       
+                <div className='relative'>      
                 <input
-                    type='text' 
+                    type={showPassword ? 'text' : 'password'}
                     name='password'
                     className="input w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800"
                     placeholder="Password" required />
+                    <span onClick={() => { setShowPassword(!showPassword) }}
+                        className='absolute top-3 right-8'>
+                    {
+                        showPassword ? <FaEyeSlash size={20}/>: <FaEye size={20}/>
+                    }
+                    </span>
+                </div>
 
                 <p className="my-1 text-sm text-center dark:text-gray-600">Already have an account?
                 <Link to='/auth/login' className="hover:underline text-blue-400"> Login</Link>
