@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 
 const Register = () => {
-    const {signUp} = useAuth();
-    
+    const {signUp,googleSignIn,setUser} = useAuth();
+    const navigate = useNavigate();
     const handleRegister = e =>{
         e.preventDefault();
         const name = e.target.name.value;
@@ -19,6 +20,18 @@ const Register = () => {
         })
         .catch(error=>{
             console.log(error);
+        })
+    }
+
+    const handleGoogleLogin = () =>{
+        googleSignIn().then(result=>{
+            setUser(result.user);
+            toast.success("Registration successful!");
+            navigate('/');
+        })
+        .catch(error=>{
+            console.log(error);
+            toast(error.message);
         })
     }
 
@@ -52,7 +65,7 @@ const Register = () => {
                 <button type='submit' className="btn btn-primary w-full text-white rounded-md">Register</button>
             </form>
             <div className="mt-2">
-                <button className="btn w-full bg-primary text-white border-[#e5e5e5]">
+                <button onClick={handleGoogleLogin} className="btn w-full bg-primary text-white border-[#e5e5e5]">
                 <FcGoogle size={20}/> Login with Google</button>
             </div>
         </div>

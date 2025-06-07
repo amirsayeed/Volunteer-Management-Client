@@ -1,11 +1,13 @@
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import { toast } from 'react-toastify';
 
 const Login = () => {
 
-    const {signIn} = useAuth();
+    const {signIn,googleSignIn,setUser} = useAuth();
+    const navigate = useNavigate();
 
     const handleLogin = e =>{
         e.preventDefault();
@@ -14,13 +16,28 @@ const Login = () => {
         //console.log(email,password);
 
         signIn(email,password).then(result=>{
-            console.log(result.user);
+            setUser(result.user);
+            toast.success('Login successful');
+            navigate('/');
         })
         .catch(error=>{
             console.log(error);
+            toast.error(error.message);
         })
     }
-    
+
+     const handleGoogleLogin = () =>{
+        googleSignIn().then(result=>{
+            setUser(result.user);
+            navigate('/');
+            toast.success('Login successful');
+        })
+        .catch(error=>{
+            console.log(error);
+            toast.error(error.message);
+        })
+    }
+
     return (
         <div className='my-20'>
             <div className="flex flex-col mx-auto max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-100 dark:text-gray-800">
@@ -36,7 +53,7 @@ const Login = () => {
                 <button type='submit' className="btn btn-primary w-full text-white rounded-md">Log in</button>
             </form>
             <div className="space-y-2 mt-2">
-                <button className="btn w-full bg-primary text-white border-[#e5e5e5]">
+                <button onClick={handleGoogleLogin} className="btn w-full bg-primary text-white border-[#e5e5e5]">
                 <FcGoogle size={20}/> Login with Google</button>
                 <p className="px-6 text-sm text-center dark:text-gray-600">Don't have an account yet?
                 <Link to='/auth/register' className="hover:underline text-blue-400"> Sign up</Link>.
