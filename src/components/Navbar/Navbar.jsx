@@ -1,7 +1,21 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router';
+import useAuth from '../../hooks/useAuth';
+import { FaUserCircle } from 'react-icons/fa';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
+    const {user, logOut} = useAuth();
+
+    const handleLogOut = () =>{
+        logOut().then(()=>{
+            toast.success('Successfully logged out');
+        })
+        .catch(error=>{
+            toast.error(error.message);
+        })
+    }
+
     const links = <>
                     <li><NavLink to='/'>Home</NavLink></li>
                     <li><NavLink>All volunteer need</NavLink></li>
@@ -27,7 +41,15 @@ const Navbar = () => {
             </ul>
         </div>
         <div className="navbar-end gap-3">
-            <Link to='/auth/login' className="btn btn-primary">Login</Link>
+            {user ? 
+                <div className='flex gap-2'>
+                    <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
+                        {user?.photoURL ? <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" /> : <FaUserCircle size={40} />}
+                    </div> 
+                    <button onClick={handleLogOut} className='btn btn-primary'>Logout</button>
+                </div> 
+                : <Link to='/auth/login' className="btn btn-primary">Login</Link>
+            }
             <div className="dropdown dropdown-end">
             <div tabIndex={0} role="button">
             <div>
