@@ -1,11 +1,26 @@
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
+import useAuth from '../../hooks/useAuth';
 
-const handleLogin = e =>{
-    e.preventDefault();
-}
 const Login = () => {
+
+    const {signIn} = useAuth();
+
+    const handleLogin = e =>{
+        e.preventDefault();
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        //console.log(email,password);
+
+        signIn(email,password).then(result=>{
+            console.log(result.user);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
+    }
+    
     return (
         <div className='my-20'>
             <div className="flex flex-col mx-auto max-w-md p-6 rounded-md sm:p-10 dark:bg-gray-100 dark:text-gray-800">

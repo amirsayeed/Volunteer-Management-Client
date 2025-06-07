@@ -1,10 +1,25 @@
 import React from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link } from 'react-router';
+import useAuth from '../../hooks/useAuth';
 
 const Register = () => {
+    const {signUp} = useAuth();
+    
     const handleRegister = e =>{
         e.preventDefault();
+        const name = e.target.name.value;
+        const photo = e.target.photo.value;
+        const email = e.target.email.value;
+        const password = e.target.password.value;
+        //console.log(name,photo,email,password);
+
+         signUp(email,password).then(result=>{
+            console.log(result.user);
+        })
+        .catch(error=>{
+            console.log(error);
+        })
     }
 
     return (
@@ -23,14 +38,12 @@ const Register = () => {
                 <input type="email" name="email" id="email" placeholder="leroy@jenkins.com" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" required/>
                     
                 
-                <label className="text-sm mt-2">Password*</label> 
-                <div className='relative'>      
+                <label className="text-sm mt-2">Password*</label>       
                 <input
                     type='text' 
                     name='password'
                     className="input w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800"
                     placeholder="Password" required />
-                </div>
 
                 <p className="my-1 text-sm text-center dark:text-gray-600">Already have an account?
                 <Link to='/auth/login' className="hover:underline text-blue-400"> Login</Link>
