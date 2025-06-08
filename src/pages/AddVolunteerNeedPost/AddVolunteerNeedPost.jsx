@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import useAuth from '../../hooks/useAuth';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';
+import Swal from 'sweetalert2';
 
 const AddVolunteerNeedPost = () => {
     const {user} = useAuth();
@@ -11,9 +13,24 @@ const AddVolunteerNeedPost = () => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
-        const volunteerData = Object.fromEntries(formData.entries());
-        volunteerData.noOfVolunteers = parseInt(volunteerData.noOfVolunteers);
-        console.log(volunteerData);
+        const newVolunteerNeedData = Object.fromEntries(formData.entries());
+        newVolunteerNeedData.noOfVolunteers = parseInt(newVolunteerNeedData.noOfVolunteers);
+        //console.log(newVolunteerNeedData);
+
+        axios.post('http://localhost:5000/addVolunteerNeedPost',newVolunteerNeedData)
+        .then(res=>{
+            if(res?.data.insertedId){
+                console.log('after adding',res?.data);
+                Swal.fire({
+                title: "Volunteer needed post added successfully",
+                icon: "success",
+                draggable: true
+                });
+            }
+        })
+        .catch(error=>{
+            console.log(error)
+        })
     }
     
     return (

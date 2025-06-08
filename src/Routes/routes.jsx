@@ -7,6 +7,7 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AuthLayout from "../layouts/AuthLayout";
 import AddVolunteerNeedPost from "../pages/AddVolunteerNeedPost/AddVolunteerNeedPost";
+import PrivateRoute from "../provider/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -19,7 +20,7 @@ export const router = createBrowserRouter([
         },
         {
           path: 'addVolunteerNeedPost',
-          element: <AddVolunteerNeedPost/>
+          element: <PrivateRoute><AddVolunteerNeedPost/></PrivateRoute>
         }
 
     ]
