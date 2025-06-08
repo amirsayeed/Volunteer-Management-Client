@@ -60,7 +60,7 @@ const Navbar = () => {
                 tabIndex={0}
                 className="menu menu-md dropdown-content bg-base-100 rounded-box z-1 mt-4 w-52 p-3 shadow text-lg">
                 
-                <li><NavLink>Add Volunteer Need Post</NavLink></li>
+                <li><NavLink to='/addVolunteerNeedPost'>Add Volunteer Need Post</NavLink></li>
                 <li><NavLink>Manage My Posts</NavLink></li>
             </ul>
             </div>
