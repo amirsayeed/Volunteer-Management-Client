@@ -10,6 +10,7 @@ import AddVolunteerNeedPost from "../pages/AddVolunteerNeedPost/AddVolunteerNeed
 import PrivateRoute from "../provider/PrivateRoute";
 import Loading from "../components/Shared/Loading/Loading";
 import AllVolunteerNeedPosts from "../pages/AllVolunteerNeedPosts/AllVolunteerNeedPosts";
+import VolunteerNeedPostDetails from "../pages/VolunteerNeedPostDetails/VolunteerNeedPostDetails";
 
 export const router = createBrowserRouter([
   {
@@ -29,7 +30,14 @@ export const router = createBrowserRouter([
           loader: () => fetch('http://localhost:5000/addVolunteerNeedPost'),
           hydrateFallbackElement: <Loading/>,
           Component: AllVolunteerNeedPosts
-        }
+        },
+        {
+          path: 'volunteerNeedPost/:postId',
+          loader: ({params})=> fetch(`http://localhost:5000/addVolunteerNeedPost/${params.postId}`),
+          element: <PrivateRoute>
+            <VolunteerNeedPostDetails/>
+          </PrivateRoute>
+        },
 
     ]
   },
