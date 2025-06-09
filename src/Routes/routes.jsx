@@ -8,6 +8,8 @@ import Register from "../pages/Register/Register";
 import AuthLayout from "../layouts/AuthLayout";
 import AddVolunteerNeedPost from "../pages/AddVolunteerNeedPost/AddVolunteerNeedPost";
 import PrivateRoute from "../provider/PrivateRoute";
+import Loading from "../components/Shared/Loading/Loading";
+import AllVolunteerNeedPosts from "../pages/AllVolunteerNeedPosts/AllVolunteerNeedPosts";
 
 export const router = createBrowserRouter([
   {
@@ -21,6 +23,12 @@ export const router = createBrowserRouter([
         {
           path: 'addVolunteerNeedPost',
           element: <PrivateRoute><AddVolunteerNeedPost/></PrivateRoute>
+        },
+        {
+          path: 'allVolunteerNeedPosts',
+          loader: () => fetch('http://localhost:5000/addVolunteerNeedPost'),
+          hydrateFallbackElement: <Loading/>,
+          Component: AllVolunteerNeedPosts
         }
 
     ]

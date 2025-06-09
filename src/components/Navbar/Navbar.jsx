@@ -18,7 +18,7 @@ const Navbar = () => {
 
     const links = <>
                     <li><NavLink to='/'>Home</NavLink></li>
-                    <li><NavLink>All volunteer need</NavLink></li>
+                    <li><NavLink to='/allVolunteerNeedPosts'>All volunteer Need posts</NavLink></li>
                   </>
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -60,7 +60,7 @@ const Navbar = () => {
                 tabIndex={0}
                 className="menu menu-md dropdown-content bg-base-100 rounded-box z-1 mt-4 w-52 p-3 shadow text-lg">
                 
-                <li><NavLink to='/addVolunteerNeedPost'>Add Volunteer Need Post</NavLink></li>
+                <li><NavLink to='/addVolunteerNeedPost'>Add Volunteer need Post</NavLink></li>
                 <li><NavLink>Manage My Posts</NavLink></li>
             </ul>
             </div>
