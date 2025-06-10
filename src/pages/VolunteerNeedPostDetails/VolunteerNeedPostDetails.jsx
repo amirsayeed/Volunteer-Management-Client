@@ -1,15 +1,38 @@
-import React from 'react';
+import React, { useState } from 'react';
 import DatePicker from 'react-datepicker';
 import { useLoaderData} from 'react-router';
 import useAuth from '../../hooks/useAuth';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const VolunteerNeedPostDetails = () => {
-    const {_id,title,thumbnail,description,deadline,category,location,noOfVolunteers,oname,oemail} = useLoaderData();
-    const {user} = useAuth();
+    const {user} = useAuth()
+    const postDetails = useLoaderData();
+    const [details,setDetails] = useState(postDetails);
+    const {_id,title,thumbnail,description,deadline,category,location,noOfVolunteers,oname,oemail} = details;
+
 
     const handleVolunteer = e =>{
         e.preventDefault();
-        console.log("Your application has been submitted")
+        const form = e.target;
+        const formData = new FormData(form);
+        const newVolunteerData = Object.fromEntries(formData);
+        newVolunteerData.noOfVolunteers = parseInt(newVolunteerData.noOfVolunteers);
+        console.log(newVolunteerData);
+
+        axios.post(`http://localhost:5000/volunteerRequest/${_id}`,newVolunteerData)
+        .then(res=>{
+            if(res?.data.insertedId){
+                console.log('after added',res?.data)
+                setDetails(prev=>{
+                    return {...prev, noOfVolunteers:prev.noOfVolunteers-1};
+                })
+                toast.success("Your request has been submitted successfullly")
+            }
+        })
+        .catch(error=>{
+            console.log(error)
+        })
     }
     
     return (
@@ -55,16 +78,13 @@ const VolunteerNeedPostDetails = () => {
                                 </fieldset>
                                 <fieldset className='fieldset rounded-box p-4'>
                                     <label className="label">Category</label>
-                                    <select
-                                    value={category}
-                                    className="select w-full bg-gray-100 cursor-not-allowed"
-                                    disabled>
-                                        <option disabled={true}>Select a category</option>
-                                        <option value="healthcare">Health Care</option>
-                                        <option value="education">Education</option>
-                                        <option value="social service">Social Service</option>
-                                        <option value="animal welfare">Animal Welfare</option>
-                                    </select>
+                                    <input
+                                    type="text"
+                                    name="category"
+                                    defaultValue={category}
+                                    readOnly
+                                    className="input w-full bg-gray-100 cursor-not-allowed"
+                                    />
                                 </fieldset>
                                                         
                                 <fieldset className='fieldset rounded-box p-4'>
@@ -110,7 +130,7 @@ const VolunteerNeedPostDetails = () => {
                             
                                 <fieldset className='fieldset rounded-box p-4'>
                                     <label className="label">Volunteer Email</label>
-                                    <input type="email" name='oemail' 
+                                    <input type="email" name='vemail' 
                                     defaultValue={user?.email} className="input w-full" placeholder="Volunteer Email" readOnly />
                                 </fieldset>
                                 <fieldset className='fieldset rounded-box p-4'>

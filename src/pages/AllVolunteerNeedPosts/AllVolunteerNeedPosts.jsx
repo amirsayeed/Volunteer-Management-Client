@@ -4,7 +4,7 @@ import VolunteerNeedPostCard from './VolunteerNeedPostCard';
 
 const AllVolunteerNeedPosts = () => {
     const allVolNeedData = useLoaderData();
-    console.log(allVolNeedData);
+    //console.log(allVolNeedData);
     return (
         <div className='max-w-7xl mx-auto my-20'>
             
