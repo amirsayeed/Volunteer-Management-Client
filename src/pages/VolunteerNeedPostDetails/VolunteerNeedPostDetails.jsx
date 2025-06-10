@@ -20,6 +20,11 @@ const VolunteerNeedPostDetails = () => {
         newVolunteerData.noOfVolunteers = parseInt(newVolunteerData.noOfVolunteers);
         console.log(newVolunteerData);
 
+        if(user?.email === oemail){
+            toast.warn("You can't volunteer on your own post!");
+            return;
+        }
+        
         axios.post(`http://localhost:5000/volunteerRequest/${_id}`,newVolunteerData)
         .then(res=>{
             if(res?.data.insertedId){
