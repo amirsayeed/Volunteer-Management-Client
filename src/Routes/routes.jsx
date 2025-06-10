@@ -27,8 +27,6 @@ export const router = createBrowserRouter([
         },
         {
           path: 'allVolunteerNeedPosts',
-          loader: () => fetch('http://localhost:5000/addVolunteerNeedPost'),
-          hydrateFallbackElement: <Loading/>,
           Component: AllVolunteerNeedPosts
         },
         {
