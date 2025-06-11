@@ -32,7 +32,7 @@ export const router = createBrowserRouter([
         },
         {
           path: 'manageMyPosts',
-          Component: ManageMyPosts
+          element: <PrivateRoute><ManageMyPosts/></PrivateRoute>
         },
         {
           path: 'volunteerNeedPost/:postId',
