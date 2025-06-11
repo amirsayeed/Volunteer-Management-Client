@@ -61,7 +61,7 @@ const VolunteerNeedRow = ({post,idx, needPost, setNeedPost}) => {
             <td>{location}</td>
             <th>
             <div className='flex gap-2'>
-                <Link>
+                <Link to={`/updateVolunteerNeedPost/${_id}`}>
                 <button className="btn btn-primary btn-sm">Update</button>
                 </Link>
                 <button onClick={()=>handleDelete(_id)} className="btn btn-primary btn-sm">Delete</button>

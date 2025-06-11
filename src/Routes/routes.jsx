@@ -12,6 +12,7 @@ import Loading from "../components/Shared/Loading/Loading";
 import AllVolunteerNeedPosts from "../pages/AllVolunteerNeedPosts/AllVolunteerNeedPosts";
 import VolunteerNeedPostDetails from "../pages/VolunteerNeedPostDetails/VolunteerNeedPostDetails";
 import ManageMyPosts from "../pages/ManageMyPosts/ManageMyPosts";
+import UpdateVolunteerNeedPost from "../pages/UpdateVolunteerNeedPost/UpdateVolunteerNeedPost";
 
 export const router = createBrowserRouter([
   {
@@ -41,6 +42,13 @@ export const router = createBrowserRouter([
             <VolunteerNeedPostDetails/>
           </PrivateRoute>
         },
+        {
+          path: 'updateVolunteerNeedPost/:postId',
+          loader: ({params})=> fetch(`http://localhost:5000/addVolunteerNeedPost/${params.postId}`),
+          element: <PrivateRoute>
+            <UpdateVolunteerNeedPost/>
+          </PrivateRoute>
+        }
 
     ]
   },
