@@ -11,6 +11,7 @@ import PrivateRoute from "../provider/PrivateRoute";
 import Loading from "../components/Shared/Loading/Loading";
 import AllVolunteerNeedPosts from "../pages/AllVolunteerNeedPosts/AllVolunteerNeedPosts";
 import VolunteerNeedPostDetails from "../pages/VolunteerNeedPostDetails/VolunteerNeedPostDetails";
+import ManageMyPosts from "../pages/ManageMyPosts/ManageMyPosts";
 
 export const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const router = createBrowserRouter([
         {
           path: 'allVolunteerNeedPosts',
           Component: AllVolunteerNeedPosts
+        },
+        {
+          path: 'manageMyPosts',
+          Component: ManageMyPosts
         },
         {
           path: 'volunteerNeedPost/:postId',
