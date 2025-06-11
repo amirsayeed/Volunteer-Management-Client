@@ -1,9 +1,10 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import VolunteerNeedRow from './VolunteerNeedRow';
 
 const VolunteerNeedPostList = ({myVolunteerNeedPromise}) => {
     const volunteerNeedPost = use(myVolunteerNeedPromise);
-    console.log(volunteerNeedPost);
+    //console.log(volunteerNeedPost);
+    const [needPost, setNeedPost] = useState(volunteerNeedPost);
     return (
         <div>
             <div className="overflow-x-auto mt-10 mb-20 max-w-7xl mx-auto bg-base-200 border rounded-2xl p-3">
@@ -20,9 +21,11 @@ const VolunteerNeedPostList = ({myVolunteerNeedPromise}) => {
                     </thead>
                     <tbody className='text-base font-medium'>
                         {
-                            volunteerNeedPost.map((post,idx)=><VolunteerNeedRow key={post._id} 
+                            needPost.map((post,idx)=><VolunteerNeedRow key={post._id} 
                             idx={idx} 
-                            post={post} />)
+                            post={post}
+                            needPost={needPost}
+                            setNeedPost={setNeedPost} />)
                         }
                         
                     </tbody>
