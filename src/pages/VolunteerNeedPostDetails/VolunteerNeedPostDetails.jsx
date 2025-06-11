@@ -18,6 +18,7 @@ const VolunteerNeedPostDetails = () => {
         const formData = new FormData(form);
         const newVolunteerData = Object.fromEntries(formData);
         newVolunteerData.noOfVolunteers = parseInt(newVolunteerData.noOfVolunteers);
+        newVolunteerData.postId = _id;
         console.log(newVolunteerData);
 
         if(user?.email === oemail){

@@ -2,7 +2,7 @@ import React from 'react';
 import Swal from 'sweetalert2';
 
 const VolunteerRequestRow = ({post,idx,reqPosts,setReqPosts}) => {
-    const {_id,thumbnail,title,category,location} = post;
+    const {_id,thumbnail,title,category,location,postId} = post;
 
     const handleCancelReq = _id =>{
         console.log(_id);
@@ -20,6 +20,10 @@ const VolunteerRequestRow = ({post,idx,reqPosts,setReqPosts}) => {
             if (result.isConfirmed) {
                 fetch(`http://localhost:5000/myVolunteerRequests/${_id}`,{
                     method: "DELETE",
+                    headers: {
+                          'content-type': 'application/json'
+                        },
+                    body: JSON.stringify({postId: postId})
                 })
                 .then(res=>res.json())
                 .then(data => {

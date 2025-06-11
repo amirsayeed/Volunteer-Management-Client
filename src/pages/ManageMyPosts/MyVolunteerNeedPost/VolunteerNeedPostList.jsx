@@ -7,7 +7,11 @@ const VolunteerNeedPostList = ({myVolunteerNeedPromise}) => {
     const [needPost, setNeedPost] = useState(volunteerNeedPost);
     return (
         <div>
-            <div className="overflow-x-auto mt-10 mb-20 max-w-7xl mx-auto bg-base-200 border rounded-2xl p-3">
+        {needPost.length===0 ? (
+            <div className="flex items-center justify-center mt-10 mb-20 text-xl font-bold">
+                <h3>No volunteer need post added yet</h3>
+            </div> 
+        ): (<div className="overflow-x-auto mt-10 mb-20 max-w-7xl mx-auto bg-base-200 border rounded-2xl p-3">
                 <table className="table">
                     <thead className='text-lg font-bold'>
                     <tr>
@@ -30,7 +34,8 @@ const VolunteerNeedPostList = ({myVolunteerNeedPromise}) => {
                         
                     </tbody>
                 </table>
-            </div>
+            </div>)
+            }    
         </div>
     );
 };
