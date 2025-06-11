@@ -1,7 +1,41 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
-const VolunteerRequestRow = ({post,idx}) => {
-    const {thumbnail,title,category,location} = post;
+const VolunteerRequestRow = ({post,idx,reqPosts,setReqPosts}) => {
+    const {_id,thumbnail,title,category,location} = post;
+
+    const handleCancelReq = _id =>{
+        console.log(_id);
+
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, cancel it!"
+            }).then((result) => {
+            console.log(result.isConfirmed);
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/myVolunteerRequests/${_id}`,{
+                    method: "DELETE",
+                })
+                .then(res=>res.json())
+                .then(data => {
+                    console.log('after delete', data)
+                    Swal.fire({
+                    title: "Canceled!",
+                    text: "Your volunteer request has been canceled.",
+                    icon: "success"
+                    });
+                    const remaining = reqPosts.filter(post=>post._id !== _id);
+                    setReqPosts(remaining);
+                })  
+                }
+                });
+    }
+
     return (
         <>
          <tr>
@@ -26,7 +60,7 @@ const VolunteerRequestRow = ({post,idx}) => {
             <td>{location}</td>
             <th>
             <div className='flex gap-2'>
-                <button className="btn btn-primary btn-sm">Cancel</button>
+                <button onClick={()=>handleCancelReq(_id)} className="btn btn-primary btn-sm">Cancel</button>
             </div>
             </th>
             </tr>
