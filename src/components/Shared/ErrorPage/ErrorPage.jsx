@@ -6,6 +6,7 @@ import { Link } from 'react-router';
 const ErrorPage = () => {
     return (
         <>
+        <title>Volunteer Management | Error Page</title>
         <Navbar/>
         <div className='max-w-md mx-auto px-1'>
             <div className='flex flex-col items-center justify-center gap-3 min-h-screen my-10'>

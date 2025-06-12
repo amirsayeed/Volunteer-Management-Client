@@ -30,6 +30,8 @@ const AllVolunteerNeedPosts = () => {
     }
 
     return (
+        <>
+        <title>Volunteer Management | All Volunteer Need Posts</title>
         <div className='max-w-7xl mx-auto my-20'>
             <div className='flex justify-end gap-3 mb-8'>
                 <button onClick={handleGrid}><BsGrid3X3GapFill size={20} /></button>
@@ -76,6 +78,8 @@ const AllVolunteerNeedPosts = () => {
                 </div>
                 )}
         </div>
+        </>
+        
     );
 };
 

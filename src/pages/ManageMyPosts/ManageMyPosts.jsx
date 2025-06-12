@@ -4,10 +4,14 @@ import MyVolunteerRequestPost from './MyVolunteerRequestPost/MyVolunteerRequestP
 
 const ManageMyPosts = () => {
     return (
+        <>
+        <title>Volunteer Management | Manage My Posts</title>
         <div className='my-20'>
             <MyVolunteerNeedPost/>
             <MyVolunteerRequestPost/>
         </div>
+        </>
+        
     );
 };
 

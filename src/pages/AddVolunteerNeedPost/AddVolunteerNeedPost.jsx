@@ -35,6 +35,7 @@ const AddVolunteerNeedPost = () => {
     
     return (
         <div>
+            <title>Volunteer Management | Add Volunteer Need Post</title>
             <div className='px-12 md:px-24 my-20'>
                 <div className='p-12 space-y-4 text-center bg-base-300'>
                     <h3 className="text-2xl md:text-3xl font-semibold">Add Volunteer Need Post</h3>

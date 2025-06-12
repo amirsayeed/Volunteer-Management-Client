@@ -8,10 +8,13 @@ const Home = () => {
     //console.log(upcomingNeedPosts);
     
     return (
+        <>
+        <title>Volunteer Management | Home</title>
         <div className='max-w-7xl mx-auto'>
            <Slider/>
            <VolunteerNeedsNow upcomingNeedPosts={upcomingNeedPosts}/>
         </div>
+        </>
     );
 };
 

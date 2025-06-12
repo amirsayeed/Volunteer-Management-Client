@@ -47,6 +47,8 @@ const VolunteerNeedPostDetails = () => {
     }
     
     return (
+        <>
+        <title>Volunteer Management | Volunteer Need Post Details</title>
         <div className='max-w-7xl mx-auto my-20'>
             <div className="card card-side gap-5 bg-base-200 shadow-md p-4">
             <figure>
@@ -174,6 +176,8 @@ const VolunteerNeedPostDetails = () => {
             </div>
             </div>
         </div>
+        </>
+        
     );
 };
 
