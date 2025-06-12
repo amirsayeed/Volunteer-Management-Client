@@ -1,5 +1,6 @@
 import React from 'react';
 import VolunteerNeedPostCard from '../../pages/AllVolunteerNeedPosts/VolunteerNeedPostCard';
+import { Link } from 'react-router';
 
 const VolunteerNeedsNow = ({upcomingNeedPosts}) => {
     return (
@@ -11,6 +12,11 @@ const VolunteerNeedsNow = ({upcomingNeedPosts}) => {
                 {
                     upcomingNeedPosts.map(volNeed=><VolunteerNeedPostCard key={volNeed._id} volNeed={volNeed}/>)
                 }
+            </div>
+            <div className='flex justify-center mt-8'>
+                <Link to='/allVolunteerNeedPosts'>
+                    <button className='btn btn-primary'>See all</button>
+                </Link>
             </div>
         </div>
     );

@@ -13,11 +13,13 @@ import AllVolunteerNeedPosts from "../pages/AllVolunteerNeedPosts/AllVolunteerNe
 import VolunteerNeedPostDetails from "../pages/VolunteerNeedPostDetails/VolunteerNeedPostDetails";
 import ManageMyPosts from "../pages/ManageMyPosts/ManageMyPosts";
 import UpdateVolunteerNeedPost from "../pages/UpdateVolunteerNeedPost/UpdateVolunteerNeedPost";
+import ErrorPage from "../components/Shared/ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
   {
     path: "/",
     element: <Root/>,
+    errorElement: <ErrorPage/>,
     children: [
         {
             index: true,
@@ -59,6 +61,7 @@ export const router = createBrowserRouter([
   {
       path: '/auth',
       Component: AuthLayout,
+      errorElement: <ErrorPage/>,
       children: [
         {
             path: '/auth/login',

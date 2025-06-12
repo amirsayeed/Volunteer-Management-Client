@@ -19,10 +19,15 @@ const VolunteerNeedPostDetails = () => {
         const newVolunteerData = Object.fromEntries(formData);
         newVolunteerData.noOfVolunteers = parseInt(newVolunteerData.noOfVolunteers);
         newVolunteerData.postId = _id;
-        console.log(newVolunteerData);
+        //console.log(newVolunteerData);
 
         if(user?.email === oemail){
             toast.warn("You can't volunteer on your own post!");
+            return;
+        }
+
+        if(noOfVolunteers===0){
+            toast.error("No volunteers are needed for this post now!");
             return;
         }
         
@@ -103,7 +108,7 @@ const VolunteerNeedPostDetails = () => {
                                 <fieldset className='fieldset rounded-box p-4'>
                                     <label className="label">No. of volunteers needed</label>
                                     <input type="number" name='noOfVolunteers'
-                                    defaultValue={noOfVolunteers} className="input w-full" placeholder="No. of volunteers" 
+                                    value={noOfVolunteers} className="input w-full" placeholder="No. of volunteers" 
                                     readOnly/>
                                 </fieldset>
                                 <fieldset className='fieldset rounded-box p-4'>
