@@ -21,6 +21,8 @@ export const router = createBrowserRouter([
     children: [
         {
             index: true,
+            loader: ()=>fetch('http://localhost:5000/volunteerNeedsNow'),
+            hydrateFallbackElement: <Loading/>,
             Component: Home
         },
         {
@@ -38,6 +40,7 @@ export const router = createBrowserRouter([
         {
           path: 'volunteerNeedPost/:postId',
           loader: ({params})=> fetch(`http://localhost:5000/addVolunteerNeedPost/${params.postId}`),
+          hydrateFallbackElement:<Loading/>,
           element: <PrivateRoute>
             <VolunteerNeedPostDetails/>
           </PrivateRoute>
@@ -45,6 +48,7 @@ export const router = createBrowserRouter([
         {
           path: 'updateVolunteerNeedPost/:postId',
           loader: ({params})=> fetch(`http://localhost:5000/addVolunteerNeedPost/${params.postId}`),
+          hydrateFallbackElement: <Loading/>,
           element: <PrivateRoute>
             <UpdateVolunteerNeedPost/>
           </PrivateRoute>
