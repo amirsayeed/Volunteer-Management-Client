@@ -19,7 +19,7 @@ const VolunteerNeedRow = ({post,idx, needPost, setNeedPost}) => {
         }).then((result) => {
         console.log(result.isConfirmed);
         if (result.isConfirmed) {
-            fetch(`http://localhost:5000/addVolunteerNeedPost/${_id}`,{
+            fetch(`https://volunteer-management-server-tawny.vercel.app/addVolunteerNeedPost/${_id}`,{
                 method: "DELETE"
             })
             .then(res=>res.json())

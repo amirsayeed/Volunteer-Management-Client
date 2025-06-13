@@ -1,3 +1,7 @@
-export const myVolunteerRequestPromise = email => {
-    return fetch(`http://localhost:5000/myVolunteerRequests?email=${email}`).then(res => res.json());
+export const myVolunteerRequestPromise = (email, accessToken) => {
+    return fetch(`https://volunteer-management-server-tawny.vercel.app/myVolunteerRequests?email=${email}`, {
+        headers: {
+            authorization: `Bearer ${accessToken}`
+        }
+    }).then(res => res.json());
 }

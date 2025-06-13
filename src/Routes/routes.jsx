@@ -23,7 +23,7 @@ export const router = createBrowserRouter([
     children: [
         {
             index: true,
-            loader: ()=>fetch('http://localhost:5000/volunteerNeedsNow'),
+            loader: ()=>fetch('https://volunteer-management-server-tawny.vercel.app/volunteerNeedsNow'),
             hydrateFallbackElement: <Loading/>,
             Component: Home
         },
@@ -41,7 +41,7 @@ export const router = createBrowserRouter([
         },
         {
           path: 'volunteerNeedPost/:postId',
-          loader: ({params})=> fetch(`http://localhost:5000/addVolunteerNeedPost/${params.postId}`),
+          loader: ({params})=> fetch(`https://volunteer-management-server-tawny.vercel.app/addVolunteerNeedPost/${params.postId}`),
           hydrateFallbackElement:<Loading/>,
           element: <PrivateRoute>
             <VolunteerNeedPostDetails/>
@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
         },
         {
           path: 'updateVolunteerNeedPost/:postId',
-          loader: ({params})=> fetch(`http://localhost:5000/addVolunteerNeedPost/${params.postId}`),
+          loader: ({params})=> fetch(`https://volunteer-management-server-tawny.vercel.app/addVolunteerNeedPost/${params.postId}`),
           hydrateFallbackElement: <Loading/>,
           element: <PrivateRoute>
             <UpdateVolunteerNeedPost/>

@@ -17,7 +17,7 @@ const AddVolunteerNeedPost = () => {
         newVolunteerNeedData.noOfVolunteers = parseInt(newVolunteerNeedData.noOfVolunteers);
         //console.log(newVolunteerNeedData);
 
-        axios.post('http://localhost:5000/addVolunteerNeedPost',newVolunteerNeedData)
+        axios.post('https://volunteer-management-server-tawny.vercel.app/addVolunteerNeedPost',newVolunteerNeedData)
         .then(res=>{
             if(res?.data.insertedId){
                 console.log('after adding',res?.data);

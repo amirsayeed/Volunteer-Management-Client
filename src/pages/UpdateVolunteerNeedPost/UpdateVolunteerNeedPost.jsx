@@ -18,7 +18,7 @@ const UpdateVolunteerNeedPost = () => {
         updatedData.noOfVolunteers = parseInt(updatedData.noOfVolunteers);
         console.log(updatedData);
 
-        axios.put(`http://localhost:5000/addVolunteerNeedPost/${_id}`,updatedData)
+        axios.put(`https://volunteer-management-server-tawny.vercel.app/addVolunteerNeedPost/${_id}`,updatedData)
         .then(res=>{
             if(res?.data.modifiedCount){
                 console.log('after update',res?.data);

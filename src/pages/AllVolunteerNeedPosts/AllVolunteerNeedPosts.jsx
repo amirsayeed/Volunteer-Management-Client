@@ -13,7 +13,7 @@ const AllVolunteerNeedPosts = () => {
 
     useEffect(()=>{
         setLoading(true);
-        fetch(`http://localhost:5000/addVolunteerNeedPost?searchParams=${search}`)
+        fetch(`https://volunteer-management-server-tawny.vercel.app/addVolunteerNeedPost?searchParams=${search}`)
         .then(res=>res.json())
         .then(data=>{
             setPosts(data);
