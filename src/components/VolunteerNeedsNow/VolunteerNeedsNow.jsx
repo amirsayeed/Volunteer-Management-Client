@@ -4,9 +4,10 @@ import { Link } from 'react-router';
 
 const VolunteerNeedsNow = ({upcomingNeedPosts}) => {
     return (
-        <div className='my-20'>
-            <div className='space-y-3 text-center'>
-                <h2 className="text-3xl font-bold">Volunteer Needs Now</h2>
+        <div className='my-20 max-w-7xl mx-auto'>
+            <div className='max-w-4xl mx-auto space-y-4 text-center'>
+                <h2 className="text-xl md:text-3xl font-bold">Volunteer Needs Now</h2>
+                <p className='font-medium italic'>Make an Impact—Volunteer Before Time Runs Out!</p>
             </div>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10'>
                 {

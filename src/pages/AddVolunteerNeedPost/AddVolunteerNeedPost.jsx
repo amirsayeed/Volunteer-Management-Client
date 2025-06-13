@@ -39,6 +39,7 @@ const AddVolunteerNeedPost = () => {
             <div className='px-12 md:px-24 my-20'>
                 <div className='p-12 space-y-4 text-center bg-base-300'>
                     <h3 className="text-2xl md:text-3xl font-semibold">Add Volunteer Need Post</h3>
+                    <p className='font-medium italic'>Need Volunteers? Post It Here and Reach Willing Hearts.</p>
 
                     <form onSubmit={handleAddVolunteerNeed} className='fieldset'>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>

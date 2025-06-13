@@ -49,24 +49,29 @@ const VolunteerNeedPostDetails = () => {
     return (
         <>
         <title>Volunteer Management | Volunteer Need Post Details</title>
-        <div className='max-w-7xl mx-auto my-20'>
-            <div className="card card-side gap-5 bg-base-200 shadow-md p-4">
-            <figure>
-                <img
+        <div className='px-1'>
+            <div className='text-center space-y-3 mt-10'>
+                <h2 className="text-2xl md:text-3xl font-bold">Post Details</h2>
+                <p className="font-medium text-base md:text-lg italic">Explore the Cause. See How You Can Help.</p>
+            </div>
+            <div className="max-w-5xl mx-auto mt-10 mb-20">
+                <div className="flex flex-col md:flex-row items-start justify-center bg-base-300 shadow-sm p-5 gap-5 rounded-2xl">
+            <figure className='max-w-sm'>
+                <img className='rounded-3xl object-cover'
                 src={thumbnail}
                 alt="Movie" />
             </figure>
-            <div className="space-y-3 my-3">
+            <div className="space-y-3">
                 <h2 className="text-2xl font-semibold">{title}</h2>
-                <p className='text-base font-normal'>Description: {description}</p>
-                <p className='text-base font-normal'>Deadline: {deadline}</p>
-                <p className='text-base font-normal'>Category: {category}</p>
-                <p className='text-base font-normal'>Location: {location}</p>
-                <p className='text-base font-normal'>No. of Volunteers: {noOfVolunteers}</p>
+                <p className='text-base font-normal'><span className='font-semibold'>Description:</span> {description}</p>
+                <p className='text-base font-normal'><span className='font-semibold'>Deadline:</span> {deadline}</p>
+                <p className='text-base font-normal'><span className='font-semibold'>Category:</span> {category}</p>
+                <p className='text-base font-normal'><span className='font-semibold'>Location:</span> {location}</p>
+                <p className='text-base font-normal'><span className='font-semibold'>No. of Volunteers:</span> {noOfVolunteers}</p>
                 
                 <div className="card-actions">
                     <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn btn-primary">Be a Volunteer</button>
-                    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
+                    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle px-1">
                     <div className="modal-box">
                         <h3 className="font-bold text-2xl text-center">Be a Volunteer!</h3>
                         <div className="modal-action">
@@ -173,6 +178,7 @@ const VolunteerNeedPostDetails = () => {
                     </div>
                     </dialog>
                 </div>
+            </div>
             </div>
             </div>
         </div>

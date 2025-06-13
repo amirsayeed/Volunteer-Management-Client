@@ -32,8 +32,12 @@ const AllVolunteerNeedPosts = () => {
     return (
         <>
         <title>Volunteer Management | All Volunteer Need Posts</title>
-        <div className='max-w-7xl mx-auto my-20'>
-            <div className='flex justify-end gap-3 mb-8'>
+        <div className='max-w-7xl mx-auto my-10 px-1'>
+            <div className='max-w-4xl mx-auto text-center space-y-4'>
+                <h2 className="text-xl md:text-3xl font-bold">Opportunities to Make a Difference</h2>
+                <p className='font-medium italic'>Search What Matters to You. Lend a Hand Where It Counts.</p>
+            </div>
+            <div className='flex justify-end gap-3 my-8'>
                 <button onClick={handleGrid}><BsGrid3X3GapFill size={20} /></button>
                 <button onClick={handleTable}><RxDragHandleHorizontal size={30} /></button>
             </div>
