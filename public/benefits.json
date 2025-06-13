@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "Gain Real Experience",
+    "description": "Volunteering helps you develop real-world skills in communication, leadership, and teamwork.",
+    "icon": "https://i.ibb.co/w83DZhG/admin-settings-male.png"
+  },
+  {
+    "id": 2,
+    "title": "Build Your Network",
+    "description": "Meet people from diverse backgrounds and make meaningful connections with organizations.",
+    "icon": "https://i.ibb.co/jv7drPtK/connection-to-account.png"
+  },
+  {
+    "id": 3,
+    "title": "Boost Your Resume",
+    "description": "Show commitment and social responsibility by adding volunteer experience to your CV.",
+    "icon": "https://i.ibb.co/fT6TTtj/resume.png"
+  },
+  {
+    "id": 4,
+    "title": "Make a Difference",
+    "description": "Contribute to causes you care about and have a real impact on communities.",
+    "icon": "https://i.ibb.co/TqmjBfnH/helping.png"
+  },
+  {
+    "id": 5,
+    "title": "Explore New Passions",
+    "description": "Volunteering lets you discover interests and explore career paths you might not have considered.",
+    "icon": "https://i.ibb.co/gMSmK5Lx/light-on.png"
+  },
+  {
+    "id": 6,
+    "title": "Improve Mental Well-being",
+    "description": "Helping others can reduce stress, combat depression, and provide a sense of purpose.",
+    "icon": "https://i.ibb.co/5g99Zqvb/happy.png"
+  }
+]

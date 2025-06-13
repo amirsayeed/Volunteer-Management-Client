@@ -6,14 +6,14 @@ const StatAnalysis = () => {
     const [stats,setStats] = useState([]);
 
     useEffect(()=>{
-        fetch('./stats.json')
+        fetch('/stats.json')
         .then(res=>res.json())
         .then(data=>setStats(data))
     },[])
 
     return (
         <div className='my-20 px-1'>
-            <div className='max-w-4xl mx-auto text-center space-y-3'>
+            <div className='max-w-4xl mx-auto text-center space-y-4'>
                 <h2 className="text-xl md:text-3xl font-bold">Making Every Contribution Count</h2>
                 <p className='font-medium italic'>Every number reflects a story of help, hope and humanity.</p>
             </div>
