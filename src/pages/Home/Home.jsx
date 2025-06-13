@@ -2,6 +2,7 @@ import React from 'react';
 import Slider from '../../components/Slider/Slider';
 import VolunteerNeedsNow from '../../components/VolunteerNeedsNow/VolunteerNeedsNow';
 import { useLoaderData } from 'react-router';
+import StatAnalysis from '../../components/StatAnalysis/StatAnalysis';
 
 const Home = () => {
     const upcomingNeedPosts = useLoaderData();
@@ -13,6 +14,7 @@ const Home = () => {
         <div className='max-w-7xl mx-auto'>
            <Slider/>
            <VolunteerNeedsNow upcomingNeedPosts={upcomingNeedPosts}/>
+           <StatAnalysis/>
         </div>
         </>
     );
