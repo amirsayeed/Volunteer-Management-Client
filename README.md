@@ -1,12 +1,37 @@
-# React + Vite
+# Volunteer Management - Client
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Purpose
 
-Currently, two official plugins are available:
+A responsive volunteer management platform built with React, Firebase, and MongoDB. Users can create, update, and delete volunteer posts or sign up to volunteer for others' posts. Implements JWT authentication, dark/light theme, and dynamic routing.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Demo
 
-## Expanding the ESLint configuration
+[View Live Site](https://volunteer-management-a44f1.web.app/)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## Key Features
+
+- **User Authentication**: Email/password + Google login with Firebase & JWT.
+- **CRUD Operations**: Create, read, update, delete volunteer posts.
+- **Dynamic UI**: Dark/light theme toggle, responsive design (mobile/desktop).
+- **Animations**: Framer Motion for interactive elements.
+- **Search & Sort**: Filter posts by title, sort by deadline.
+- **Protected Routes**: JWT verification for private pages.
+
+## Tech Stack
+
+- **Frontend**: React, React Router, Tailwind CSS, DaisyUI
+- **Auth**: Firebase Authentication, JWT
+- **State Management**: React Context API
+- **Animation**: Framer Motion
+- **HTTP Client**: Axios
+- **Notifications**: React Toastify, SweetAlert2
+
+## NPM Packages
+
+- **Axios**
+- **Framer Motion**
+- **React Toastify**
+- **SweetAlert2**
+- **React Icons**
+- **React Datepicker**
+- **React CountUp**
