@@ -16,7 +16,9 @@ const VolunteerNeedsNow = ({upcomingNeedPosts}) => {
             </div>
             <div className='flex justify-center mt-8'>
                 <Link to='/allVolunteerNeedPosts'>
-                    <button className='btn btn-primary'>See all</button>
+                    <button onClick={()=>{
+                        window.scroll(0,0);
+                    }} className='btn btn-primary'>See all</button>
                 </Link>
             </div>
         </div>

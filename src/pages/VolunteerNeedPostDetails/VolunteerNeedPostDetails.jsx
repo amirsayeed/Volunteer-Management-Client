@@ -67,7 +67,10 @@ const VolunteerNeedPostDetails = () => {
                 <p className='text-base font-normal'><span className='font-semibold'>Deadline:</span> {deadline}</p>
                 <p className='text-base font-normal'><span className='font-semibold'>Category:</span> {category}</p>
                 <p className='text-base font-normal'><span className='font-semibold'>Location:</span> {location}</p>
-                <p className='text-base font-normal'><span className='font-semibold'>No. of Volunteers:</span> {noOfVolunteers}</p>
+                <p className='text-base font-normal'><span className='font-semibold'>No. of Volunteers needed:</span> {noOfVolunteers}</p>
+                <p className='text-red-500 font-bold'>
+                    {noOfVolunteers === 0 && 'No volunteers are required now!'}
+                </p>
                 
                 <div className="card-actions">
                     <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn btn-primary">Be a Volunteer</button>
@@ -76,7 +79,7 @@ const VolunteerNeedPostDetails = () => {
                         <h3 className="font-bold text-2xl text-center">Be a Volunteer!</h3>
                         <div className="modal-action">
                         <form onSubmit={handleVolunteer} className='fieldset'>
-                            <legend className="fieldset-legend">Post details</legend>
+                            <legend className="fieldset-legend text-base font-medium">Post details</legend>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                                 <fieldset className='fieldset rounded-box p-4'>
                                     <label className="label">Thumbnail</label>
@@ -139,7 +142,7 @@ const VolunteerNeedPostDetails = () => {
                                     defaultValue={oemail} className="input w-full" placeholder="Email" readOnly />
                                 </fieldset>
                             </div>
-                            <legend className="fieldset-legend">Volunteer details</legend>
+                            <legend className="fieldset-legend text-base font-medium">Volunteer details</legend>
                             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                                 <fieldset className='fieldset rounded-box p-4'>
                                     <label className="label">Volunteer Name</label>

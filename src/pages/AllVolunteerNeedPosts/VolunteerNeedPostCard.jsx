@@ -5,7 +5,7 @@ const VolunteerNeedPostCard = ({volNeed}) => {
     const {_id,thumbnail,title,category,deadline} = volNeed;
 
     return (
-        <div className="card bg-base-200 shadow-md p-4">
+        <div className="card bg-base-200 shadow-md p-4 hover:scale-105 hover:bg-[#66e29b]">
             <figure>
                 <img className='w-full h-[250px] object-cover rounded-2xl'
                 src={thumbnail}

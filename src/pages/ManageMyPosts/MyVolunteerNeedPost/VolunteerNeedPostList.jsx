@@ -20,7 +20,7 @@ const VolunteerNeedPostList = ({myVolunteerNeedPromise}) => {
                         <th>Title</th>
                         <th>Category</th>
                         <th>Location</th>
-                        <th>Edit</th>
+                        <th>Actions</th>
                     </tr>
                     </thead>
                     <tbody className='text-base font-medium'>

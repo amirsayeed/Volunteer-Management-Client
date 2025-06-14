@@ -21,7 +21,7 @@ const VolunteerRequestPostList = ({myVolunteerRequestPromise}) => {
                             <th>Title</th>
                             <th>Category</th>
                             <th>Location</th>
-                            <th>Edit</th>
+                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody className='text-base font-medium'>

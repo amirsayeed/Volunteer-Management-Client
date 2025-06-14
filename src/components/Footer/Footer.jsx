@@ -7,10 +7,14 @@ const Footer = () => {
         <>
             <footer className="footer sm:footer-horizontal bg-neutral text-neutral-content p-16">
             <aside>
-                
-                <h2 className='text-2xl font-bold'>
-                    Volunteer Management
-                </h2>
+                <div className='flex flex-col gap-2'>
+                    <img src="https://i.ibb.co/FbtpN8Sz/images-q-tbn-ANd9-Gc-Qb-Ab-GWxsb-UCMy-Gu2opp-NAg-Hn-DT6tx2fe-jrj-Hj337bkae-TR7-Mis3-Kgo8-BFk-LFN8k-C.png" 
+                    className='h-12 w-12 object-cover'
+                    alt="" />
+                    <h2 className='text-2xl font-bold'>
+                        Volunteer Management
+                    </h2>
+                </div>
             </aside>
             <nav>
                 <h6 className="footer-title">Services</h6>

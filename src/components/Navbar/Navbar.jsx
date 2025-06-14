@@ -43,7 +43,7 @@ const Navbar = () => {
                 </div>
             </ul>
             </div>
-            <a className="font-medium text-base md:text-xl">Volunteer Management</a>
+            <a className="font-semibold text-base md:text-xl">Volunteer Management</a>
         </div>
         <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 text-lg">
