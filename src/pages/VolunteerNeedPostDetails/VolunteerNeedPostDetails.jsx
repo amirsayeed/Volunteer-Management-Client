@@ -1,189 +1,35 @@
-import React, { useState } from 'react';
-import DatePicker from 'react-datepicker';
-import { useLoaderData} from 'react-router';
+import React, { Suspense, useEffect, useState } from 'react';
 import useAuth from '../../hooks/useAuth';
-import axios from 'axios';
-import { toast } from 'react-toastify';
+import VolunteerNeedPostDetailsCard from './VolunteerNeedPostDetailsCard';
+import { useParams } from 'react-router';
+import Loading from '../../components/Shared/Loading/Loading';
+import useVolunteerNeedPostDetails from '../../api/useVolunteerNeedPostDetails';
 
 const VolunteerNeedPostDetails = () => {
     const {user} = useAuth()
-    const postDetails = useLoaderData();
-    const [details,setDetails] = useState(postDetails);
-    const {_id,title,thumbnail,description,deadline,category,location,noOfVolunteers,oname,oemail} = details;
+    const {postId} = useParams();
+    //console.log(postId);
+    const {volunteerNeedPostByIdPromise} = useVolunteerNeedPostDetails();
+    const [loading,setLoading] = useState(true);
+    const [postDetails,setPostDetails] = useState([]);
+    
 
-
-    const handleVolunteer = e =>{
-        e.preventDefault();
-        const form = e.target;
-        const formData = new FormData(form);
-        const newVolunteerData = Object.fromEntries(formData);
-        newVolunteerData.noOfVolunteers = parseInt(newVolunteerData.noOfVolunteers);
-        newVolunteerData.postId = _id;
-        //console.log(newVolunteerData);
-
-        if(user?.email === oemail){
-            toast.warn("You can't volunteer on your own post!");
-            return;
-        }
-
-        if(noOfVolunteers===0){
-            toast.error("No volunteers are needed for this post now!");
-            return;
-        }
-        
-        axios.post(`https://volunteer-management-server-tawny.vercel.app/volunteerRequest/${_id}`,newVolunteerData)
-        .then(res=>{
-            if(res?.data.insertedId){
-                console.log('after added',res?.data)
-                setDetails(prev=>{
-                    return {...prev, noOfVolunteers:prev.noOfVolunteers-1};
-                })
-                toast.success("Your request has been submitted successfullly")
-            }
+    useEffect(()=>{
+        volunteerNeedPostByIdPromise(postId).then(data=>{
+            setPostDetails(data);
+            setLoading(false);
         })
-        .catch(error=>{
-            console.log(error)
-        })
+    },[postId])
+
+    if(loading){
+        return <Loading/>
     }
     
     return (
         <>
         <title>Volunteer Management | Volunteer Need Post Details</title>
         <div className='px-1'>
-            <div className='text-center space-y-3 mt-10'>
-                <h2 className="text-2xl md:text-3xl font-bold">Post Details</h2>
-                <p className="font-medium text-base md:text-lg italic">Explore the Cause. See How You Can Help.</p>
-            </div>
-            <div className="max-w-5xl mx-auto mt-10 mb-20">
-                <div className="flex flex-col md:flex-row items-start justify-center bg-base-300 shadow-sm p-5 gap-5 rounded-2xl">
-            <figure className='max-w-sm'>
-                <img className='rounded-3xl object-cover'
-                src={thumbnail}
-                alt="Movie" />
-            </figure>
-            <div className="space-y-3">
-                <h2 className="text-2xl font-semibold">{title}</h2>
-                <p className='text-base font-normal'><span className='font-semibold'>Description:</span> {description}</p>
-                <p className='text-base font-normal'><span className='font-semibold'>Deadline:</span> {deadline}</p>
-                <p className='text-base font-normal'><span className='font-semibold'>Category:</span> {category}</p>
-                <p className='text-base font-normal'><span className='font-semibold'>Location:</span> {location}</p>
-                <p className='text-base font-normal'><span className='font-semibold'>No. of Volunteers needed:</span> {noOfVolunteers}</p>
-                <p className='text-red-500 font-bold'>
-                    {noOfVolunteers === 0 && 'No volunteers are required now!'}
-                </p>
-                
-                <div className="card-actions">
-                    <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn btn-primary">Be a Volunteer</button>
-                    <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle px-1">
-                    <div className="modal-box">
-                        <h3 className="font-bold text-2xl text-center">Be a Volunteer!</h3>
-                        <div className="modal-action">
-                        <form onSubmit={handleVolunteer} className='fieldset'>
-                            <legend className="fieldset-legend text-base font-medium">Post details</legend>
-                            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Thumbnail</label>
-                                    <input type="text" name='thumbnail'
-                                    defaultValue={thumbnail} className="input w-full" placeholder="Thumbnail" readOnly />
-                                </fieldset>
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Post Title</label>
-                                    <input type="text" name='title'
-                                    defaultValue={title} className="input w-full" placeholder="Post Title" readOnly />
-                                </fieldset>
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Description</label>
-                                    <textarea name='description'
-                                    defaultValue={description} rows="3" className="textarea w-full" placeholder="Description"
-                                    readOnly></textarea>
-                                </fieldset>
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Category</label>
-                                    <input
-                                    type="text"
-                                    name="category"
-                                    defaultValue={category}
-                                    readOnly
-                                    className="input w-full bg-gray-100 cursor-not-allowed"
-                                    />
-                                </fieldset>
-                                                        
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Location</label>
-                                    <input type="text" name='location' 
-                                    defaultValue={location} className="input w-full" placeholder="Location" 
-                                    readOnly/>
-                                </fieldset>
-                                
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">No. of volunteers needed</label>
-                                    <input type="number" name='noOfVolunteers'
-                                    value={noOfVolunteers} className="input w-full" placeholder="No. of volunteers" 
-                                    readOnly/>
-                                </fieldset>
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Deadline</label>
-                                    <DatePicker
-                                    value={deadline}
-                                    name='deadline'
-                                    className='input w-full'
-                                    readOnly
-                                    />
-                                </fieldset>
-                            
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Organizer Name</label>
-                                    <input type="text" name='oname' defaultValue={oname} className="input w-full" placeholder="User Name" readOnly/>
-                                </fieldset>
-                            
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Organizer Email</label>
-                                    <input type="email" name='oemail' 
-                                    defaultValue={oemail} className="input w-full" placeholder="Email" readOnly />
-                                </fieldset>
-                            </div>
-                            <legend className="fieldset-legend text-base font-medium">Volunteer details</legend>
-                            <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Volunteer Name</label>
-                                    <input type="text" name='vname' defaultValue={user?.displayName} className="input w-full" placeholder="Volunteer Name" readOnly/>
-                                </fieldset>
-                            
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Volunteer Email</label>
-                                    <input type="email" name='vemail' 
-                                    defaultValue={user?.email} className="input w-full" placeholder="Volunteer Email" readOnly />
-                                </fieldset>
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Suggestion</label>
-                                    <textarea name='suggestion'
-                                    rows="3" className="textarea w-full" placeholder="Suggestion"
-                                    ></textarea>
-                                </fieldset>
-
-                                <fieldset className='fieldset rounded-box p-4'>
-                                    <label className="label">Status</label>
-                                    <select name="status" defaultValue="requested" className="select w-full">
-                                    <option value="requested">Requested</option>
-                                    <option value="approved">Approved</option>
-                                    <option value="rejected">Rejected</option>
-                                    </select>
-
-                                </fieldset>
-
-                            </div>
-                            <div className='p-4'>
-                                <input type='submit' className='btn w-full btn-primary' value='Request'/>
-                            </div>
-                            <button type='button' className="btn" onClick={() => document.getElementById('my_modal_5').close()}>Close</button>
-                        </form>
-                        </div>
-                    </div>
-                    </dialog>
-                </div>
-            </div>
-            </div>
-            </div>
+            <VolunteerNeedPostDetailsCard postDetails={postDetails} user={user}/>
         </div>
         </>
         
