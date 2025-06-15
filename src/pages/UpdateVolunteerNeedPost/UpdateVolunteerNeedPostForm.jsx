@@ -1,31 +1,33 @@
 import React, { useState } from 'react';
-import useAuth from '../../hooks/useAuth';
 import DatePicker from 'react-datepicker';
-import "react-datepicker/dist/react-datepicker.css";
 import Swal from 'sweetalert2';
 import useAxiosSecure from '../../hooks/useAxiosSecure';
 
-const AddVolunteerNeedPost = () => {
-    const {user} = useAuth();
-    const axiosSecure = useAxiosSecure();
-    const [selectedDate, setSelectedDate] = useState(new Date());
+const UpdateVolunteerNeedPostForm = ({postData,user}) => {
 
-    const handleAddVolunteerNeed = e =>{
+    const {_id,title,thumbnail,description,deadline,category,location,noOfVolunteers} = postData;
+    const [selectedDate, setSelectedDate] = useState(new Date(deadline));
+    const axiosSecure = useAxiosSecure();
+
+    const handleUpdateVolunteerNeed = e =>{
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
-        const newVolunteerNeedData = Object.fromEntries(formData.entries());
-        newVolunteerNeedData.noOfVolunteers = parseInt(newVolunteerNeedData.noOfVolunteers);
-        //console.log(newVolunteerNeedData);
+        const updatedData = Object.fromEntries(formData.entries());
+        updatedData.noOfVolunteers = parseInt(updatedData.noOfVolunteers);
+        //console.log(updatedData);
 
-        axiosSecure.post('/addVolunteerNeedPost',newVolunteerNeedData)
+        axiosSecure.put(`/addVolunteerNeedPost/${_id}`,updatedData)
         .then(res=>{
-            if(res?.data.insertedId){
-                console.log('after adding',res?.data);
+            if(res?.data.modifiedCount){
+                console.log('after update',res?.data);
                 Swal.fire({
-                title: "Volunteer needed post added successfully",
+                position: "top-end",
+                title: "Volunteer needed post updated successfully",
                 icon: "success",
-                draggable: true
+                draggable: true,
+                showConfirmButton: false,
+                timer: 1500
                 });
             }
         })
@@ -33,33 +35,33 @@ const AddVolunteerNeedPost = () => {
             console.log(error)
         })
     }
-    
-    return (
-        <div>
-            <title>Volunteer Management | Add Volunteer Need Post</title>
-            <div className='px-12 md:px-24 my-20'>
-                <div className='p-12 space-y-4 text-center bg-base-300'>
-                    <h3 className="text-2xl md:text-3xl font-semibold">Add Volunteer Need Post</h3>
-                    <p className='font-medium italic'>Need Volunteers? Post It Here and Reach Willing Hearts.</p>
 
-                    <form onSubmit={handleAddVolunteerNeed} className='fieldset'>
+    return (
+        <div className='px-12 md:px-24 my-20'>
+                <div className='p-12 space-y-4 text-center bg-base-300'>
+                    <h3 className="text-2xl md:text-3xl font-semibold">Update Volunteer Need Post</h3>
+                    <p className='font-medium italic'>Refine. Refresh. Reach More Volunteers.</p>
+
+                    <form onSubmit={handleUpdateVolunteerNeed} className='fieldset'>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             <fieldset className='fieldset rounded-box p-4'>
                                 <label className="label">Thumbnail</label>
-                                <input type="text" name='thumbnail' className="input w-full" placeholder="Thumbnail" />
+                                <input type="text" name='thumbnail'
+                                defaultValue={thumbnail} className="input w-full" placeholder="Thumbnail" />
                             </fieldset>
                             <fieldset className='fieldset rounded-box p-4'>
                                 <label className="label">Post Title</label>
-                                <input type="text" name='title' className="input w-full" placeholder="Post Title" />
+                                <input type="text" name='title'
+                                defaultValue={title} className="input w-full" placeholder="Post Title" />
                             </fieldset>
                             <fieldset className='fieldset rounded-box p-4'>
                                 <label className="label">Description</label>
-                                {/* <input type="text" name='description' className="input w-full" placeholder="Description" /> */}
-                                <textarea name='description' rows="3" className="textarea w-full" placeholder="Description"></textarea>
+                                <textarea name='description' rows="3"
+                                defaultValue={description} className="textarea w-full" placeholder="Description"></textarea>
                             </fieldset>
                             <fieldset className='fieldset rounded-box p-4'>
                                 <label className="label">Category</label>
-                                <select defaultValue="Select a category" name='category' className="select w-full">
+                                <select defaultValue={category} name='category' className="select w-full">
                                     <option disabled={true}>Select a category</option>
                                     <option value="healthcare">Health Care</option>
                                     <option value="education">Education</option>
@@ -70,12 +72,15 @@ const AddVolunteerNeedPost = () => {
                             
                             <fieldset className='fieldset rounded-box p-4'>
                                 <label className="label">Location</label>
-                                <input type="text" name='location' className="input w-full" placeholder="Location" />
+                                <input type="text" name='location'
+                                defaultValue={location}
+                                className="input w-full" placeholder="Location" />
                             </fieldset>
                             
                             <fieldset className='fieldset rounded-box p-4'>
                                 <label className="label">No. of volunteers needed</label>
-                                <input type="number" name='noOfVolunteers' className="input w-full" placeholder="No. of volunteers" />
+                                <input type="number" name='noOfVolunteers'
+                                defaultValue={noOfVolunteers} className="input w-full" placeholder="No. of volunteers" />
                             </fieldset>
                             <fieldset className='fieldset rounded-box p-4'>
                                 <label className="label">Deadline</label>
@@ -99,13 +104,12 @@ const AddVolunteerNeedPost = () => {
                             
                         </div>
                         <div className='p-4'>
-                            <input type='submit' className='btn w-full btn-primary' value='Add Post'/>
+                            <input type='submit' className='btn w-full btn-primary' value='Update Post'/>
                         </div>
                     </form>
                 </div>
-            </div>            
-        </div>
+            </div> 
     );
 };
 
-export default AddVolunteerNeedPost;
+export default UpdateVolunteerNeedPostForm;

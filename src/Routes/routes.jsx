@@ -41,16 +41,12 @@ export const router = createBrowserRouter([
         },
         {
           path: 'volunteerNeedPost/:postId',
-          // loader: ({params})=> fetch(`https://volunteer-management-server-tawny.vercel.app/addVolunteerNeedPost/${params.postId}`),
-          // hydrateFallbackElement:<Loading/>,
           element: <PrivateRoute>
             <VolunteerNeedPostDetails/>
           </PrivateRoute>
         },
         {
           path: 'updateVolunteerNeedPost/:postId',
-          loader: ({params})=> fetch(`https://volunteer-management-server-tawny.vercel.app/addVolunteerNeedPost/${params.postId}`),
-          hydrateFallbackElement: <Loading/>,
           element: <PrivateRoute>
             <UpdateVolunteerNeedPost/>
           </PrivateRoute>
