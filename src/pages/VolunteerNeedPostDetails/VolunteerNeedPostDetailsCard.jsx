@@ -21,7 +21,7 @@ const VolunteerNeedPostDetailsCard = ({postDetails,user}) => {
                 return;
             }
     
-            if(noOfVolunteers===0){
+            if(noOfVolunteers <= 0){
                 toast.error("No volunteers are needed for this post now!");
                 return;
             }
@@ -62,7 +62,7 @@ const VolunteerNeedPostDetailsCard = ({postDetails,user}) => {
                 <p className='text-base font-normal'><span className='font-semibold'>Location:</span> {location}</p>
                 <p className='text-base font-normal'><span className='font-semibold'>No. of Volunteers needed:</span> {noOfVolunteers}</p>
                 <p className='text-red-500 font-bold'>
-                    {noOfVolunteers === 0 && 'No volunteers are required now!'}
+                    {noOfVolunteers <= 0 && 'No volunteers are required now!'}
                 </p>
                 
                 <div className="card-actions">
