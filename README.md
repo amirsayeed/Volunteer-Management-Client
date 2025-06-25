@@ -6,7 +6,7 @@ A responsive volunteer management platform built with React, Firebase, and Mongo
 
 ## Live Demo
 
-[View Live Site](https://volunteer-management-a44f1.web.app/)
+[View Live Site](https://volunteer-management-a44f1.web.app/)<br/>
 [Server GitHub Repo](https://github.com/amirsayeed/Volunteer-Management-Server)
 
 ## Key Features
@@ -41,15 +41,17 @@ A responsive volunteer management platform built with React, Firebase, and Mongo
 
 ### 1. Clone both client and server repos:
 
-````bash
+```bash
 git clone https://github.com/amirsayeed/Volunteer-Management-Client.git
 git clone https://github.com/amirsayeed/Volunteer-Management-Server.git
+```
 
 ### 2. Setup the server
 
 ```bash
 cd Volunteer-Management-Server
 npm install
+```
 
 Create a .env file in the server root with the following:
 
@@ -60,12 +62,14 @@ Then start the server using:
 
 ```bash
 nodemon index.js
+```
 
 ### 3. Setup the Client:
 
 ```bash
 cd ../Volunteer-Management-Client
 npm install
+```
 
 Create a .env file in the root of the client directory:
 
@@ -81,4 +85,4 @@ Then start the client:
 
 ```bash
 npm run dev
-````
+```
