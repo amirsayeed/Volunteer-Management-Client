@@ -7,6 +7,7 @@ A responsive volunteer management platform built with React, Firebase, and Mongo
 ## Live Demo
 
 [View Live Site](https://volunteer-management-a44f1.web.app/)
+[Server GitHub Repo](https://github.com/amirsayeed/Volunteer-Management-Server)
 
 ## Key Features
 
@@ -35,3 +36,49 @@ A responsive volunteer management platform built with React, Firebase, and Mongo
 - **React Icons**
 - **React Datepicker**
 - **React CountUp**
+
+## 🛠️ Local Development Setup
+
+### 1. Clone both client and server repos:
+
+````bash
+git clone https://github.com/amirsayeed/Volunteer-Management-Client.git
+git clone https://github.com/amirsayeed/Volunteer-Management-Server.git
+
+### 2. Setup the server
+
+```bash
+cd Volunteer-Management-Server
+npm install
+
+Create a .env file in the server root with the following:
+
+DB_USER=your_mongodb_user
+DB_PASS=your_mongodb_password
+
+Then start the server using:
+
+```bash
+nodemon index.js
+
+### 3. Setup the Client:
+
+```bash
+cd ../Volunteer-Management-Client
+npm install
+
+Create a .env file in the root of the client directory:
+
+VITE_API_BASE_URL=http://localhost:5000
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+VITE_FIREBASE_PROJECT_ID=your_project_id
+VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+VITE_FIREBASE_APP_ID=your_app_id
+
+Then start the client:
+
+```bash
+npm run dev
+````
