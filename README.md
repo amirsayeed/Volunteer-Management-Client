@@ -55,14 +55,18 @@ npm install
 
 Create a .env file in the server root with the following:
 
+```bash
 DB_USER=your_mongodb_user
 DB_PASS=your_mongodb_password
+```
 
 Then start the server using:
 
 ```bash
 nodemon index.js
 ```
+
+The server will run on: http://localhost:5000
 
 ### 3. Setup the Client:
 
@@ -71,18 +75,21 @@ cd ../Volunteer-Management-Client
 npm install
 ```
 
-Create a .env file in the root of the client directory:
+Create a .env.local file in the root of the client directory:
 
-VITE_API_BASE_URL=http://localhost:5000
+```bash
 VITE_FIREBASE_API_KEY=your_firebase_api_key
 VITE_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
 VITE_FIREBASE_PROJECT_ID=your_project_id
 VITE_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
 VITE_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
 VITE_FIREBASE_APP_ID=your_app_id
+```
 
 Then start the client:
 
 ```bash
 npm run dev
 ```
+
+The client will run at: http://localhost:5173
