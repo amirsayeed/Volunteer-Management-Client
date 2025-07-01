@@ -11,7 +11,7 @@ const Benefits = () => {
     },[])
 
     return (
-        <div className='my-20 px-1 max-w-7xl mx-auto'>
+        <div className='my-20 px-1'>
             <div className='max-w-4xl mx-auto text-center space-y-4'>
                 <h2 className="text-xl md:text-3xl font-bold">Discover the Rewards of Giving Back</h2>
                 <p className='font-medium italic'>Volunteering lights a path for others, and in doing so, it brightens your own.</p>

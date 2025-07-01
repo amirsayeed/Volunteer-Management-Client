@@ -6,7 +6,7 @@ const ManageMyPosts = () => {
     return (
         <>
         <title>Volunteer Management | Manage My Posts</title>
-        <div className='my-20'>
+        <div className='my-10'>
             <MyVolunteerNeedPost/>
             <MyVolunteerRequestPost/>
         </div>

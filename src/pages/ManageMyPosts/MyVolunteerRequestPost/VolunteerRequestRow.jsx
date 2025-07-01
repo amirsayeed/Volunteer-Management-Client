@@ -64,7 +64,7 @@ const VolunteerRequestRow = ({post,idx,reqPosts,setReqPosts}) => {
             <td>{location}</td>
             <th>
             <div className='flex gap-2'>
-                <button onClick={()=>handleCancelReq(_id)} className="btn btn-primary btn-sm">Cancel</button>
+                <button onClick={()=>handleCancelReq(_id)} className="btn bg-[#2dcfc4] text-white rounded-xl btn-sm">Cancel</button>
             </div>
             </th>
             </tr>

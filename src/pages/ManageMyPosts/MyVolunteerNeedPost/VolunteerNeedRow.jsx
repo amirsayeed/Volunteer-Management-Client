@@ -62,9 +62,9 @@ const VolunteerNeedRow = ({post,idx, needPost, setNeedPost}) => {
             <th>
             <div className='flex gap-2'>
                 <Link to={`/updateVolunteerNeedPost/${_id}`}>
-                <button className="btn btn-primary btn-sm">Update</button>
+                <button className="btn bg-[#2dcfc4] text-white rounded-xl btn-sm">Update</button>
                 </Link>
-                <button onClick={()=>handleDelete(_id)} className="btn btn-primary btn-sm">Delete</button>
+                <button onClick={()=>handleDelete(_id)} className="btn bg-[#2dcfc4] text-white rounded-xl btn-sm">Delete</button>
             </div>
             </th>
             </tr>

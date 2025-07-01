@@ -12,7 +12,7 @@ const VolunteerRequestPostList = ({myVolunteerRequestPromise}) => {
                 (<div className="flex items-center justify-center mt-10 mb-20 text-xl font-bold">
                     <h3>No volunteer request post added yet</h3>
                 </div> ) :
-                (<div className="overflow-x-auto mt-10 mb-20 max-w-7xl mx-auto bg-base-200 border rounded-2xl p-3">
+                (<div className="overflow-x-auto mt-10 mb-20 max-w-7xl mx-auto bg-base-200 border-2 border-[#2dcfc4] rounded-2xl p-3">
                     <table className="table">
                         <thead className='text-lg font-bold'>
                         <tr>

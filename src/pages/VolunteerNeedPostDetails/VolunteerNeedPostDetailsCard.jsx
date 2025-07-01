@@ -66,7 +66,7 @@ const VolunteerNeedPostDetailsCard = ({postDetails,user}) => {
                 </p>
                 
                 <div className="card-actions">
-                    <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn btn-primary">Be a Volunteer</button>
+                    <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn bg-[#2dcfc4] text-white rounded-xl">Be a Volunteer</button>
                     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle px-1">
                     <BeVolunteerModal details={details} handleVolunteer={handleVolunteer} user={user}/>
                     </dialog>

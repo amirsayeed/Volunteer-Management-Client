@@ -99,7 +99,7 @@ const AddVolunteerNeedPost = () => {
                             
                         </div>
                         <div className='p-4'>
-                            <input type='submit' className='btn w-full btn-primary' value='Add Post'/>
+                            <input type='submit' className='btn w-full bg-[#2dcfc4] text-white rounded-xl' value='Add Post'/>
                         </div>
                     </form>
                 </div>

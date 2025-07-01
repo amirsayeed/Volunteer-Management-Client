@@ -101,7 +101,7 @@ const BeVolunteerModal = ({details,handleVolunteer,user}) => {
                 </fieldset>
              </div>
              <div className='p-4'>
-                 <input type='submit' className='btn w-full btn-primary' value='Request'/>
+                 <input type='submit' className='btn w-full bg-[#2dcfc4] text-white rounded-xl' value='Request'/>
              </div>
              <button type='button' className="btn" onClick={() => document.getElementById('my_modal_5').close()}>Close</button>
             </form>

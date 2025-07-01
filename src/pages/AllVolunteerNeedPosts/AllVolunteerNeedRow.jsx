@@ -22,7 +22,7 @@ const AllVolunteerNeedRow = ({post,index}) => {
             <td>{location}</td> 
             <td>
                 <Link to={`/volunteerNeedPost/${_id}`}>
-                    <button className="btn btn-primary">View Details</button>
+                    <button className="btn bg-[#2dcfc4] text-white rounded-xl">View Details</button>
                 </Link>    
             </td>   
         </tr>   

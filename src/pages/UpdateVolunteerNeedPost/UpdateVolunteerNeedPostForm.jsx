@@ -104,7 +104,7 @@ const UpdateVolunteerNeedPostForm = ({postData,user}) => {
                             
                         </div>
                         <div className='p-4'>
-                            <input type='submit' className='btn w-full btn-primary' value='Update Post'/>
+                            <input type='submit' className='btn w-full bg-[#2dcfc4] text-white rounded-xl' value='Update Post'/>
                         </div>
                     </form>
                 </div>

@@ -61,7 +61,7 @@ const AllVolunteerNeedPosts = () => {
                     ))}
                 </div>) 
                 : 
-                (<div className="overflow-x-auto mt-10 mb-20 bg-base-300 border rounded-2xl p-4">
+                (<div className="overflow-x-auto mt-10 mb-20 bg-base-200 border-2 border-[#2dcfc4] rounded-2xl p-4">
                     <table className="table">
                     <thead className='text-lg font-bold'>
                         <tr>

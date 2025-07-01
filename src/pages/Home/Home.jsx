@@ -12,7 +12,7 @@ const Home = () => {
     return (
         <>
         <title>Volunteer Management | Home</title>
-        <div>
+        <div className='max-w-[1500px] mx-auto'>
            <Slider/>
            <VolunteerNeedsNow upcomingNeedPosts={upcomingNeedPosts}/>
            <StatAnalysis/>
