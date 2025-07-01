@@ -9,7 +9,7 @@ const StatsCard = ({stat}) => {
             <img src={stat.image} alt={stat.label} className="w-12 h-12 object-contain" />
           </figure>
           <div className='space-y-5 text-center'>
-            <h2 className='text-4xl md:text-5xl font-bold'>
+            <h2 className='text-3xl md:text-4xl font-bold'>
               <CountUp delay={0} start={0} end={value} enableScrollSpy duration={3}>
                 {({ countUpRef }) => <span ref={countUpRef} />}
               </CountUp>+

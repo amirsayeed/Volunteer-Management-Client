@@ -21,8 +21,8 @@ const Navbar = () => {
                     <li><NavLink to='/allVolunteerNeedPosts'>All volunteer Need posts</NavLink></li>
                   </>
     return (
-        <div className='bg-base-200'>
-            <div className="navbar max-w-[1500px] mx-auto shadow-md">
+        <div className='bg-base-200 sticky top-0 z-50 shadow-md'>
+            <div className="navbar max-w-[1500px] mx-auto md:px-3">
             <div className="navbar-start">
                 <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
