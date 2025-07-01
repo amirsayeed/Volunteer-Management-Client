@@ -90,13 +90,13 @@ const Register = () => {
                 </div>
 
                 <p className="my-1 text-sm text-center dark:text-gray-600">Already have an account?
-                <Link to='/auth/login' className="hover:underline text-blue-400"> Login</Link>
+                <Link to='/auth/login' className="hover:underline text-[#2dcfc4]"> Login</Link>
                 </p>
                 
-                <button type='submit' className="btn btn-primary w-full text-white rounded-md">Register</button>
+                <button type='submit' className="btn bg-[#2dcfc4] text-white rounded-xl w-full border-0">Register</button>
             </form>
             <div className="mt-2">
-                <button onClick={handleGoogleLogin} className="btn w-full bg-primary text-white border-[#e5e5e5]">
+                <button onClick={handleGoogleLogin} className="btn w-full bg-[#2dcfc4] text-white rounded-xl border-0">
                 <FcGoogle size={20}/> Login with Google</button>
             </div>
         </div>

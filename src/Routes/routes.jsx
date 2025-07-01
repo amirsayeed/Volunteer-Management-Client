@@ -14,6 +14,7 @@ import VolunteerNeedPostDetails from "../pages/VolunteerNeedPostDetails/Voluntee
 import ManageMyPosts from "../pages/ManageMyPosts/ManageMyPosts";
 import UpdateVolunteerNeedPost from "../pages/UpdateVolunteerNeedPost/UpdateVolunteerNeedPost";
 import ErrorPage from "../components/Shared/ErrorPage/ErrorPage";
+import AboutUs from "../pages/AboutUs/AboutUs";
 
 export const router = createBrowserRouter([
   {
@@ -34,6 +35,10 @@ export const router = createBrowserRouter([
         {
           path: 'allVolunteerNeedPosts',
           Component: AllVolunteerNeedPosts
+        },
+        {
+          path: 'aboutUs',
+          Component: AboutUs
         },
         {
           path: 'manageMyPosts',
