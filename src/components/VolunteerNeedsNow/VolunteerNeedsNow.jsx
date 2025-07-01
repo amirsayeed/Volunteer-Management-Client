@@ -9,7 +9,7 @@ const VolunteerNeedsNow = ({upcomingNeedPosts}) => {
                 <h2 className="text-xl md:text-3xl font-bold">Volunteer Needs Now</h2>
                 <p className='font-medium italic'>Make an Impact—Volunteer Before Time Runs Out!</p>
             </div>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mt-10 px-1'>
                 {
                     upcomingNeedPosts.map(volNeed=><VolunteerNeedPostCard key={volNeed._id} volNeed={volNeed}/>)
                 }

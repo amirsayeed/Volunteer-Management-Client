@@ -49,12 +49,12 @@ const VolunteerNeedPostDetailsCard = ({postDetails,user}) => {
             </div>
             <div className="max-w-5xl mx-auto mt-10 mb-20">
                 <div className="flex flex-col md:flex-row items-start justify-center bg-base-300 shadow-sm p-5 gap-5 rounded-2xl">
-            <figure className='max-w-sm'>
+            <figure className='lg:w-1/2 w-full'>
                 <img className='rounded-3xl object-cover'
                 src={thumbnail}
                 alt="Movie" />
             </figure>
-            <div className="space-y-3">
+            <div className="lg:w-1/2 w-full space-y-3">
                 <h2 className="text-2xl font-semibold">{title}</h2>
                 <p className='text-base font-normal'><span className='font-semibold'>Description:</span> {description}</p>
                 <p className='text-base font-normal'><span className='font-semibold'>Deadline:</span> {deadline}</p>

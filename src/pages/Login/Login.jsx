@@ -53,14 +53,14 @@ const Login = () => {
                     
                 <label className="text-sm mt-2">Password</label>       
                 <input type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-2 border rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800" required />
-                <Link className="text-xs my-1 hover:underline dark:text-gray-600">Forgot password?</Link>
-                <button type='submit' className="btn btn-primary w-full text-white rounded-md">Log in</button>
+                <Link className="text-xs my-1 hover:underline">Forgot password?</Link>
+                <button type='submit' className="btn bg-[#2dcfc4] text-white rounded-xl">Log in</button>
             </form>
-            <div className="space-y-2 mt-2">
-                <button onClick={handleGoogleLogin} className="btn w-full bg-primary text-white border-[#e5e5e5]">
+            <div className="space-y-3 mt-2">
+                <button onClick={handleGoogleLogin} className="btn w-full bg-[#2dcfc4] text-white rounded-xl">
                 <FcGoogle size={20}/> Login with Google</button>
-                <p className="px-6 text-sm text-center dark:text-gray-600">Don't have an account yet?
-                <Link to='/auth/register' className="hover:underline text-blue-400"> Sign up</Link>.
+                <p className="px-6 text-sm text-center">Don't have an account yet?
+                <Link to='/auth/register' className="hover:underline text-[#2dcfc4]"> Sign up</Link>.
                 </p>
             </div>
         </div>

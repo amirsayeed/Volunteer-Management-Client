@@ -18,7 +18,11 @@ const Navbar = () => {
 
     const links = <>
                     <li><NavLink to='/'>Home</NavLink></li>
-                    <li><NavLink to='/allVolunteerNeedPosts'>All volunteer Need posts</NavLink></li>
+                    <li><NavLink to='/allVolunteerNeedPosts'>All Posts</NavLink></li>
+                    {user && <>
+                    <li><NavLink to='/addVolunteerNeedPost'>Add Volunteer</NavLink></li>
+                    <li><NavLink to='/manageMyPosts'>Manage Posts</NavLink></li>
+                    </>}
                   </>
     return (
         <div className='bg-base-200 sticky top-0 z-50 shadow-md'>
@@ -47,12 +51,11 @@ const Navbar = () => {
                 <a className="font-semibold text-base md:text-xl">Volunteer Management</a>
             </div>
             <div className="navbar-center hidden lg:flex">
-                <ul className="menu menu-horizontal px-1 text-lg font-medium">
+                <ul className="menu menu-horizontal px-1 text-base font-medium">
                     {links}
                 </ul>
             </div>
             <div className="navbar-end gap-3">
-
                 <div className='hidden md:flex'>
                     <label className="toggle text-base-content">
                     <input type="checkbox" value="dark" className="theme-controller" />
@@ -72,20 +75,6 @@ const Navbar = () => {
                     </div> 
                     : <Link to='/auth/login' className="btn bg-[#2dcfc4] text-white rounded-xl">Login</Link>
                 }
-                <div className="dropdown dropdown-end">
-                <div tabIndex={0} role="button">
-                <div>
-                    <h2 className=" text-base md:text-lg font-medium">My Profile</h2>
-                </div>
-                </div>  
-                <ul
-                    tabIndex={0}
-                    className="menu menu-md dropdown-content bg-base-100 rounded-box z-1 mt-4 w-52 p-3 shadow text-lg">
-                    
-                    <li><NavLink to='/addVolunteerNeedPost'>Add Volunteer need Post</NavLink></li>
-                    <li><NavLink to='/manageMyPosts'>Manage My Posts</NavLink></li>
-                </ul>
-                </div>
             </div>
             </div>
         </div>
