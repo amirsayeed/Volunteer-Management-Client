@@ -50,13 +50,13 @@ const VolunteerNeedPostDetailsCard = ({postDetails,user}) => {
             <div className="max-w-5xl mx-auto mt-10 mb-20">
                 <div className="flex flex-col md:flex-row items-start justify-center bg-base-300 shadow-sm p-5 gap-5 rounded-2xl">
             <figure className='lg:w-1/2 w-full'>
-                <img className='rounded-3xl object-cover'
+                <img className='w-full rounded-3xl object-cover'
                 src={thumbnail}
                 alt="Movie" />
             </figure>
             <div className="lg:w-1/2 w-full space-y-3">
                 <h2 className="text-2xl font-semibold">{title}</h2>
-                <p className='text-base font-normal'><span className='font-semibold'>Description:</span> {description}</p>
+                <p className='text-base font-normal text-justify'><span className='font-semibold'>Description:</span> {description}</p>
                 <p className='text-base font-normal'><span className='font-semibold'>Deadline:</span> {deadline}</p>
                 <p className='text-base font-normal'><span className='font-semibold'>Category:</span> {category}</p>
                 <p className='text-base font-normal'><span className='font-semibold'>Location:</span> {location}</p>
@@ -65,7 +65,7 @@ const VolunteerNeedPostDetailsCard = ({postDetails,user}) => {
                     {noOfVolunteers <= 0 && 'No volunteers are required now!'}
                 </p>
                 
-                <div className="card-actions">
+                <div className="card-actions mt-2">
                     <button onClick={()=>document.getElementById('my_modal_5').showModal()} className="btn bg-[#2dcfc4] text-white rounded-xl">Be a Volunteer</button>
                     <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle px-1">
                     <BeVolunteerModal details={details} handleVolunteer={handleVolunteer} user={user}/>
