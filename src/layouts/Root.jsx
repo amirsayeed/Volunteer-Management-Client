@@ -11,7 +11,7 @@ const Root = () => {
         <div>
             <Navbar/>
             {state==='loading' ? <Loading/> : (
-                <div className='max-w-[1500px] mx-auto min-h-[calc(100%-337px)]'>
+                <div className='max-w-[1500px] mx-auto min-h-[calc(100%-474px)]'>
                     <Outlet/>
                 </div>    
             )}

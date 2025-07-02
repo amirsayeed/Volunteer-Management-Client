@@ -4,6 +4,7 @@ import VolunteerNeedsNow from '../../components/VolunteerNeedsNow/VolunteerNeeds
 import { useLoaderData } from 'react-router';
 import StatAnalysis from '../../components/StatAnalysis/StatAnalysis';
 import Benefits from '../../components/Benefits/Benefits';
+import Partners from '../../components/Partners/Partners';
 
 const Home = () => {
     const upcomingNeedPosts = useLoaderData();
@@ -17,6 +18,7 @@ const Home = () => {
            <VolunteerNeedsNow upcomingNeedPosts={upcomingNeedPosts}/>
            <StatAnalysis/>
            <Benefits/>
+           <Partners/>
         </div>
         </>
     );
