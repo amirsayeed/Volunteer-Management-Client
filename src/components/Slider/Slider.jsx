@@ -32,7 +32,7 @@ const Slider = () => {
                         >
                             <motion.span
                                 animate={{
-                                    color: ['#f05146', '#72ee5b', '#41f1e4'],
+                                    color: ['#72ee5b', '#41f1e4'],
                                     transition: { duration: 3, repeat: Infinity }
                                 }}
                             >
@@ -68,7 +68,7 @@ const Slider = () => {
                         >
                             <motion.span
                                 animate={{
-                                    color: ['#f05146', '#72ee5b', '#41f1e4'],
+                                    color: ['#72ee5b', '#41f1e4'],
                                     transition: { duration: 3, repeat: Infinity }
                                 }}
                             >
@@ -104,7 +104,7 @@ const Slider = () => {
                         >
                             <motion.span
                                 animate={{
-                                    color: ['#f05146', '#72ee5b', '#41f1e4'],
+                                    color: ['#72ee5b', '#41f1e4'],
                                     transition: { duration: 3, repeat: Infinity }
                                 }}
                             >
