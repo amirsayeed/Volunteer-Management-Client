@@ -10,7 +10,11 @@ const Root = () => {
     return (
         <div>
             <Navbar/>
-            {state==='loading' ? <Loading/> : (
+            {state==='loading' ? (
+                <div>
+                    <Loading/>
+                </div>    
+                ) : (
                 <div className='max-w-[1500px] mx-auto min-h-[calc(100%-474px)]'>
                     <Outlet/>
                 </div>    

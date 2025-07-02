@@ -55,7 +55,7 @@ const Partners = () => {
             <img
                 src={partner.logo}
                 alt={partner.name}
-                className="h-16 object-contain max-w-[160px]"
+                className="h-20 object-contain w-[200px]"
             />
             </a>
         ))}
