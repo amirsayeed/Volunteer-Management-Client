@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { CgDetailsMore } from "react-icons/cg";
 
 const VolunteerNeedPostCard = ({volNeed}) => {
     const {_id,thumbnail,title,description} = volNeed;
@@ -13,12 +14,13 @@ const VolunteerNeedPostCard = ({volNeed}) => {
             </figure>
             <div className="card-body space-y-1 text-center">
                 <h2 className="font-bold text-lg">{title}</h2>
-                <p className='font-medium text-base'>{description.slice(0,100)}...</p>
-                {/* <p className='font-medium text-base'>Category: {category}</p>
-                <p className='font-medium text-base'>Deadline: {deadline}</p> */}
+                <p className='font-medium text-base'>{description.slice(0,80)}...</p>
                 <div className="card-actions justify-center">
                 <Link to={`/volunteerNeedPost/${_id}`}>
-                    <button className="btn bg-[#2dcfc4] text-white rounded-xl">View Details</button>
+                    <button className="btn flex bg-[#2dcfc4] text-white rounded-xl">
+                        <span>View Details</span>
+                        <span><CgDetailsMore size={15} className='text-white' /></span>
+                    </button>
                 </Link>
                 </div>
             </div>

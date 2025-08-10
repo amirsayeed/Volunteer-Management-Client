@@ -1,6 +1,7 @@
 import React from 'react';
 import VolunteerNeedPostCard from '../../pages/AllVolunteerNeedPosts/VolunteerNeedPostCard';
 import { Link } from 'react-router';
+import { FaArrowRight } from 'react-icons/fa';
 
 const VolunteerNeedsNow = ({upcomingNeedPosts}) => {
     return (
@@ -18,7 +19,10 @@ const VolunteerNeedsNow = ({upcomingNeedPosts}) => {
                 <Link to='/allVolunteerNeedPosts'>
                     <button onClick={()=>{
                         window.scroll(0,0);
-                    }} className='btn w-40 text-lg bg-[#2dcfc4] text-white rounded-xl'>See all</button>
+                    }} className='btn flex w-40 text-lg bg-[#2dcfc4] text-white rounded-xl'>
+                        <span>See all</span>
+                        <span><FaArrowRight size={15}/></span>
+                    </button>
                 </Link>
             </div>
         </div>
