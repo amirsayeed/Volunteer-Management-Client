@@ -4,7 +4,7 @@ const BenefitCard = ({benefit}) => {
     const {icon,title,description} = benefit;
 
     return (
-        <div className='card card-border bg-base-300 p-5 rounded-2xl'>
+        <div className='card border-2 border-[#2dcfc4] py-4 px-3 rounded-2xl'>
              <figure>
                 <img src={icon} className='w-16 h-16 object-cover' alt="" />
             </figure>

@@ -1,4 +1,6 @@
 import React from 'react';
+import { FaEdit } from 'react-icons/fa';
+import { MdDeleteForever } from 'react-icons/md';
 import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 
@@ -62,9 +64,15 @@ const VolunteerNeedRow = ({post,idx, needPost, setNeedPost}) => {
             <th>
             <div className='flex gap-2'>
                 <Link to={`/updateVolunteerNeedPost/${_id}`}>
-                <button className="btn bg-[#2dcfc4] text-white rounded-xl btn-sm">Update</button>
+                <button className="btn flex items-center bg-[#2dcfc4] text-white rounded-xl btn-sm">
+                    <span>Update</span>
+                    <span><FaEdit size={15} /></span>
+                </button>
                 </Link>
-                <button onClick={()=>handleDelete(_id)} className="btn bg-[#2dcfc4] text-white rounded-xl btn-sm">Delete</button>
+                <button onClick={()=>handleDelete(_id)} className="btn flex items-center bg-[#2dcfc4] text-white rounded-xl btn-sm">
+                    <span>Delete</span>
+                    <span><MdDeleteForever size={15} /></span>
+                </button>
             </div>
             </th>
             </tr>

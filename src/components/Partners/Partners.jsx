@@ -31,13 +31,13 @@ const partnerOrgs = [
 
 const Partners = () => {
   return (
-    <div className="my-10">
+    <div className="my-10 px-1 md:px-3">
       <div className="text-center space-y-4">
         <h2 className="text-3xl font-bold mb-2">Our Partners</h2>
         <p className="italic font-medium text-lg">Together, we make a bigger impact.</p>
       </div>
 
-      <div className='mt-3'>
+      <div className='mt-5'>
         <Marquee
         pauseOnHover
         speed={50}

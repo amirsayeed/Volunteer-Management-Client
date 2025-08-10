@@ -45,22 +45,22 @@ const UpdateVolunteerNeedPostForm = ({postData,user}) => {
                     <form onSubmit={handleUpdateVolunteerNeed} className='fieldset'>
                         <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                             <fieldset className='fieldset rounded-box p-4'>
-                                <label className="label">Thumbnail</label>
+                                <label className="label font-bold">Thumbnail</label>
                                 <input type="text" name='thumbnail'
                                 defaultValue={thumbnail} className="input w-full" placeholder="Thumbnail" />
                             </fieldset>
                             <fieldset className='fieldset rounded-box p-4'>
-                                <label className="label">Post Title</label>
+                                <label className="label font-bold">Post Title</label>
                                 <input type="text" name='title'
                                 defaultValue={title} className="input w-full" placeholder="Post Title" />
                             </fieldset>
                             <fieldset className='fieldset rounded-box p-4'>
-                                <label className="label">Description</label>
+                                <label className="label font-bold">Description</label>
                                 <textarea name='description' rows="3"
                                 defaultValue={description} className="textarea w-full" placeholder="Description"></textarea>
                             </fieldset>
                             <fieldset className='fieldset rounded-box p-4'>
-                                <label className="label">Category</label>
+                                <label className="label font-bold">Category</label>
                                 <select defaultValue={category} name='category' className="select w-full">
                                     <option disabled={true}>Select a category</option>
                                     <option value="healthcare">Health Care</option>
@@ -71,19 +71,19 @@ const UpdateVolunteerNeedPostForm = ({postData,user}) => {
                             </fieldset>
                             
                             <fieldset className='fieldset rounded-box p-4'>
-                                <label className="label">Location</label>
+                                <label className="label font-bold">Location</label>
                                 <input type="text" name='location'
                                 defaultValue={location}
                                 className="input w-full" placeholder="Location" />
                             </fieldset>
                             
                             <fieldset className='fieldset rounded-box p-4'>
-                                <label className="label">No. of volunteers needed</label>
+                                <label className="label font-bold">No. of volunteers needed</label>
                                 <input type="number" name='noOfVolunteers'
                                 defaultValue={noOfVolunteers} className="input w-full" placeholder="No. of volunteers" />
                             </fieldset>
                             <fieldset className='fieldset rounded-box p-4'>
-                                <label className="label">Deadline</label>
+                                <label className="label font-bold">Deadline</label>
                                 <DatePicker
                                 selected={selectedDate}
                                 onChange={(date) => setSelectedDate(date)}
@@ -93,12 +93,12 @@ const UpdateVolunteerNeedPostForm = ({postData,user}) => {
                             </fieldset>
 
                             <fieldset className='fieldset rounded-box p-4'>
-                                <label className="label">Organizer Name</label>
+                                <label className="label font-bold">Organizer Name</label>
                                 <input type="text" name='oname' defaultValue={user.displayName} className="input w-full" placeholder="User Name" readOnly/>
                             </fieldset>
 
                             <fieldset className='fieldset rounded-box p-4'>
-                                <label className="label">Organizer Email</label>
+                                <label className="label font-bold">Organizer Email</label>
                                 <input type="email" name='oemail' defaultValue={user.email} className="input w-full" placeholder="Email" readOnly />
                             </fieldset>
                             

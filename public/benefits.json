@@ -34,5 +34,17 @@
     "title": "Improve Mental Well-being",
     "description": "Helping others can reduce stress, combat depression, and provide a sense of purpose.",
     "icon": "https://i.ibb.co/5g99Zqvb/happy.png"
+  },
+  {
+    "id": 7,
+    "title": "Gain Cultural Awareness",
+    "description": "Experience different cultures, traditions, and perspectives through meaningful community involvement.",
+    "icon": "https://i.ibb.co.com/99WDk9ny/icons8-global-64.png"
+  },
+  {
+    "id": 8,
+    "title": "Increase Your Influence",
+    "description": "Shape the direction of community projects by contributing your voice, ideas, and leadership.",
+    "icon": "https://i.ibb.co.com/rG14VSR0/icons8-loudspeaker-50.png"
   }
 ]

@@ -1,4 +1,5 @@
 import React from 'react';
+import { MdCancel } from 'react-icons/md';
 import Swal from 'sweetalert2';
 
 const VolunteerRequestRow = ({post,idx,reqPosts,setReqPosts}) => {
@@ -64,7 +65,10 @@ const VolunteerRequestRow = ({post,idx,reqPosts,setReqPosts}) => {
             <td>{location}</td>
             <th>
             <div className='flex gap-2'>
-                <button onClick={()=>handleCancelReq(_id)} className="btn bg-[#2dcfc4] text-white rounded-xl btn-sm">Cancel</button>
+                <button onClick={()=>handleCancelReq(_id)} className="btn flex bg-[#2dcfc4] text-white rounded-xl btn-sm">
+                    <span>Cancel</span>
+                    <span><MdCancel size={15} /></span>
+                </button>
             </div>
             </th>
             </tr>
