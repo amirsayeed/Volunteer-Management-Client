@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import { toast } from 'react-toastify';
 import { FaEye, FaEyeSlash } from 'react-icons/fa6';
+import { FaUserPlus } from 'react-icons/fa';
 
 const Register = () => {
     const {signUp,googleSignIn,setUser,updateUser} = useAuth();
@@ -93,7 +94,10 @@ const Register = () => {
                 <Link to='/auth/login' className="hover:underline text-[#2dcfc4]"> Login</Link>
                 </p>
                 
-                <button type='submit' className="btn bg-[#2dcfc4] text-white rounded-xl w-full border-0">Register</button>
+                <button type='submit' className="btn flex bg-[#2dcfc4] text-white rounded-xl w-full border-0">
+                    <span>Register</span>
+                    <span><FaUserPlus size={15} /></span>
+                </button>
             </form>
             <div className="mt-2">
                 <button onClick={handleGoogleLogin} className="btn w-full bg-[#2dcfc4] text-white rounded-xl border-0">

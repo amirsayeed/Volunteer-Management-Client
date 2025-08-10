@@ -3,7 +3,7 @@ import { Link, NavLink } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import { FaUserCircle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
-import { LuLogIn } from 'react-icons/lu';
+import { LuLogIn, LuLogOut } from 'react-icons/lu';
 
 const Navbar = () => {
     const {user, logOut} = useAuth();
@@ -73,7 +73,10 @@ const Navbar = () => {
                         <div className="tooltip tooltip-bottom" data-tip={user?.displayName}>
                             {user?.photoURL ? <img className='w-10 h-10 rounded-full' src={user.photoURL} alt="" /> : <FaUserCircle size={40} />}
                         </div> 
-                        <button onClick={handleLogOut} className='btn bg-[#2dcfc4] text-white rounded-xl'>Logout</button>
+                        <button onClick={handleLogOut} className='btn flex bg-[#2dcfc4] text-white rounded-xl p-2'>
+                            <span>Logout</span>
+                            <span><LuLogOut size={15} /></span>
+                        </button>
                     </div> 
                     : <Link to='/auth/login'><button className="btn flex bg-[#2dcfc4] text-white rounded-xl p-2">
                         <span>Login</span>
