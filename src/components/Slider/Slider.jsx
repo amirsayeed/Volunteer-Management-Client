@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const Slider = () => {
     return (
-        <div className="px-1 md:px-0">
+        <div className="px-1 md:px-3">
             <div className="carousel rounded-b-2xl">
                 {/* Slide 1 */}
                 <div id="slide1" className="carousel-item relative w-full px-1">

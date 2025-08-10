@@ -3,6 +3,7 @@ import { Link, NavLink } from 'react-router';
 import useAuth from '../../hooks/useAuth';
 import { FaUserCircle } from 'react-icons/fa';
 import { toast } from 'react-toastify';
+import { LuLogIn } from 'react-icons/lu';
 
 const Navbar = () => {
     const {user, logOut} = useAuth();
@@ -74,7 +75,10 @@ const Navbar = () => {
                         </div> 
                         <button onClick={handleLogOut} className='btn bg-[#2dcfc4] text-white rounded-xl'>Logout</button>
                     </div> 
-                    : <Link to='/auth/login'><button className="btn bg-[#2dcfc4] text-white rounded-xl">Login</button></Link>
+                    : <Link to='/auth/login'><button className="btn flex bg-[#2dcfc4] text-white rounded-xl p-2">
+                        <span>Login</span>
+                        <span><LuLogIn size={15} /></span>
+                    </button></Link>
                 }
             </div>
             </div>
