@@ -4,7 +4,7 @@ const StatsCard = ({stat}) => {
     const {label,value} = stat;
 
     return (
-        <div className='card bg-base-300 p-6 w-52 rounded-2xl flex flex-col items-center justify-center gap-5'>
+        <div className='card border-2 border-[#2dcfc4] shadow-md p-6 w-52 rounded-2xl flex flex-col items-center justify-center gap-5'>
           <figure>
             <img src={stat.image} alt={stat.label} className="w-12 h-12 object-contain" />
           </figure>

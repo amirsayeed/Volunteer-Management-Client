@@ -6,7 +6,7 @@ const VolunteerNeedPostCard = ({volNeed}) => {
     const {_id,thumbnail,title,description} = volNeed;
 
     return (
-        <div className="card shadow-md hover:shadow-lg border border-gray-300 p-3 hover:scale-105 hover:bg-[#c2fdf9] rounded-2xl">
+        <div className="card shadow-md hover:shadow-lg border border-[#2dcfc4] p-3 hover:scale-105 hover:bg-[#c2fdf9] rounded-2xl">
             <figure>
                 <img className='card w-full h-[200px] object-cover rounded-2xl'
                 src={thumbnail}
@@ -17,7 +17,7 @@ const VolunteerNeedPostCard = ({volNeed}) => {
                 <p className='font-medium text-base'>{description.slice(0,80)}...</p>
                 <div className="card-actions justify-center">
                 <Link to={`/volunteerNeedPost/${_id}`}>
-                    <button className="btn flex bg-[#2dcfc4] text-white rounded-xl">
+                    <button className="btn flex bg-[#2dcfc4] text-white rounded-xl btn-sm">
                         <span>View Details</span>
                         <span><CgDetailsMore size={15} className='text-white' /></span>
                     </button>
