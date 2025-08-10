@@ -44,7 +44,7 @@ const AllVolunteerNeedPosts = () => {
     return (
         <>
         <title>Volunteer Management | All Volunteer Need Posts</title>
-        <div className='my-10 px-1'>
+        <div className='my-10 px-1 md:px-3'>
             <div className='max-w-4xl mx-auto text-center space-y-4'>
                 <h2 className="text-xl md:text-3xl font-bold">Opportunities to Make a Difference</h2>
                 <p className='font-medium italic'>Search What Matters to You. Lend a Hand Where It Counts.</p>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { CgDetailsMore } from 'react-icons/cg';
 import { Link } from 'react-router';
 
 const AllVolunteerNeedRow = ({post,index}) => {
@@ -22,7 +23,10 @@ const AllVolunteerNeedRow = ({post,index}) => {
             <td>{location}</td> 
             <td>
                 <Link to={`/volunteerNeedPost/${_id}`}>
-                    <button className="btn bg-[#2dcfc4] text-white rounded-xl">View Details</button>
+                    <button className="btn flex p-2 bg-[#2dcfc4] text-white rounded-xl">
+                        <span>View More</span>
+                        <span><CgDetailsMore size={15} /></span>
+                    </button>
                 </Link>    
             </td>   
         </tr>   
